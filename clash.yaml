@@ -1,17 +1,25 @@
 # Clash/Mihomo 配置；需要 Mihomo 内核。
 # 先把自己的节点粘贴到 proxies 下，再在客户端的“节点选择”中选择节点。
 # 当前没有真实节点；添加前仅能直连。请勿将节点密码提交到公开仓库。
+# 混合代理端口
 mixed-port: 7890
+# 是否允许局域网设备连接
 allow-lan: false
+# 使用规则分流模式
 mode: rule
+# 日志级别
 log-level: info
+# 是否启用互联网第六版协议
 ipv6: false
+# 并发建立连接
 tcp-concurrent: true
+# 保存客户端使用状态
 profile:
   store-selected: true
   store-fake-ip: true
 
 # 如客户端已管理 TUN 开关，可在客户端开启。
+# 虚拟网卡设置
 tun:
   enable: false
   stack: mixed
@@ -20,6 +28,7 @@ tun:
   dns-hijack:
     - any:53
 
+# 域名解析设置
 dns:
   enable: true
   # 使用普通 DoH（HTTPS/TCP），兼容不支持 UDP 转发的代理节点。
@@ -51,45 +60,47 @@ dns:
       - "https://doh.pub/dns-query#DIRECT"
 
 # 将 [] 删除，在下一行粘贴安装脚本输出的“  - name: ...”整段。
+# 节点填写区域
 proxies: []
 # 示例结构（填写真实参数后取消注释）：
 #  - name: 我的节点
 #    type: vless
-#    server: YOUR_SERVER
+#    server: 填写服务器地址
 #    port: 443
-#    uuid: YOUR_UUID
+#    uuid: 填写节点用户标识
 #    network: tcp
 #    udp: true
 #    tls: true
 #    flow: xtls-rprx-vision
-#    servername: YOUR_SNI
+#    servername: 填写伪装域名
 #    client-fingerprint: chrome
 #    reality-opts:
-#      public-key: YOUR_PUBLIC_KEY
-#      short-id: "YOUR_SHORT_ID"
+#      public-key: 填写公钥
+#      short-id: "填写短标识"
 
+# 手动选择各类服务使用的节点
 proxy-groups:
   - name: 节点选择
     type: select
     include-all: true
     proxies:
       - DIRECT
-  - name: AI
+  - name: 人工智能
     type: select
     proxies:
       - 节点选择
       - DIRECT
-  - name: Apple代理
+  - name: 苹果代理
     type: select
     proxies:
       - 节点选择
       - DIRECT
-  - name: Apple
+  - name: 苹果服务
     type: select
     proxies:
       - DIRECT
       - 节点选择
-  - name: YouTube
+  - name: 油管视频
     type: select
     proxies:
       - 节点选择
@@ -99,12 +110,12 @@ proxy-groups:
     proxies:
       - 节点选择
       - DIRECT
-  - name: Google
+  - name: 谷歌服务
     type: select
     proxies:
       - 节点选择
       - DIRECT
-  - name: Meta
+  - name: 脸书与社交
     type: select
     proxies:
       - 节点选择
@@ -114,7 +125,7 @@ proxy-groups:
     proxies:
       - 节点选择
       - DIRECT
-  - name: UltraMobile
+  - name: 美国手机卡
     type: select
     proxies:
       - 节点选择
@@ -130,85 +141,86 @@ proxy-groups:
       - 节点选择
       - DIRECT
 
+# 远程规则集，每天更新一次
 rule-providers:
-  RejectRule:
+  拦截规则:
     type: http
     behavior: classical
     format: yaml
     url: https://raw.githubusercontent.com/M48A1/RuleSet/main/clash/RejectRule.yaml
     path: ./ruleset/RejectRule.yaml
     interval: 86400
-  DirectRule:
+  直连规则:
     type: http
     behavior: classical
     format: yaml
     url: https://raw.githubusercontent.com/M48A1/RuleSet/main/clash/DirectRule.yaml
     path: ./ruleset/DirectRule.yaml
     interval: 86400
-  Ai:
+  人工智能规则:
     type: http
     behavior: classical
     format: yaml
     url: https://raw.githubusercontent.com/M48A1/RuleSet/main/clash/Ai.yaml
     path: ./ruleset/Ai.yaml
     interval: 86400
-  AppleProxy:
+  苹果代理规则:
     type: http
     behavior: classical
     format: yaml
     url: https://raw.githubusercontent.com/M48A1/RuleSet/main/clash/AppleProxy.yaml
     path: ./ruleset/AppleProxy.yaml
     interval: 86400
-  Apple:
+  苹果服务规则:
     type: http
     behavior: classical
     format: yaml
     url: https://raw.githubusercontent.com/M48A1/RuleSet/main/clash/Apple.yaml
     path: ./ruleset/Apple.yaml
     interval: 86400
-  YouTube:
+  油管视频规则:
     type: http
     behavior: classical
     format: yaml
     url: https://raw.githubusercontent.com/M48A1/RuleSet/main/clash/YouTube.yaml
     path: ./ruleset/YouTube.yaml
     interval: 86400
-  video:
+  视频与网盘规则:
     type: http
     behavior: classical
     format: yaml
     url: https://raw.githubusercontent.com/M48A1/RuleSet/main/clash/video.yaml
     path: ./ruleset/video.yaml
     interval: 86400
-  Google:
+  谷歌服务规则:
     type: http
     behavior: classical
     format: yaml
     url: https://raw.githubusercontent.com/M48A1/RuleSet/main/clash/Google.yaml
     path: ./ruleset/Google.yaml
     interval: 86400
-  Meta:
+  社交平台规则:
     type: http
     behavior: classical
     format: yaml
     url: https://raw.githubusercontent.com/M48A1/RuleSet/main/clash/Meta.yaml
     path: ./ruleset/Meta.yaml
     interval: 86400
-  USHome:
+  美国服务规则:
     type: http
     behavior: classical
     format: yaml
     url: https://raw.githubusercontent.com/M48A1/RuleSet/main/clash/USHome.yaml
     path: ./ruleset/USHome.yaml
     interval: 86400
-  UltraMobile:
+  美国手机卡规则:
     type: http
     behavior: classical
     format: yaml
     url: https://raw.githubusercontent.com/M48A1/RuleSet/main/clash/UltraMobile.yaml
     path: ./ruleset/UltraMobile.yaml
     interval: 86400
-  Surfing:
+  网页浏览规则:
     type: http
     behavior: classical
     format: yaml
@@ -216,6 +228,7 @@ rule-providers:
     path: ./ruleset/Surfing.yaml
     interval: 86400
 
+# 按从上到下的顺序匹配分流规则
 rules:
   # 局域网与回环地址直连。
   - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
@@ -225,19 +238,19 @@ rules:
   - IP-CIDR,169.254.0.0/16,DIRECT,no-resolve
   - DOMAIN-SUFFIX,lan,DIRECT
   - DOMAIN-SUFFIX,local,DIRECT
-  - RULE-SET,RejectRule,REJECT
-  - RULE-SET,DirectRule,DIRECT
-  # AI 与 Apple 代理优先于 Google / Apple 通用规则。
-  - RULE-SET,Ai,AI
-  - RULE-SET,AppleProxy,Apple代理
-  - RULE-SET,Apple,Apple
-  - RULE-SET,YouTube,YouTube
-  # Google Drive 必须先于 Google 通用域名匹配。
-  - RULE-SET,video,视频与网盘
-  - RULE-SET,Google,Google
-  - RULE-SET,Meta,Meta
-  - RULE-SET,USHome,美国服务
-  - RULE-SET,UltraMobile,UltraMobile
-  - RULE-SET,Surfing,网页浏览
+  - RULE-SET,拦截规则,REJECT
+  - RULE-SET,直连规则,DIRECT
+  # 人工智能与苹果代理优先于谷歌、苹果通用规则。
+  - RULE-SET,人工智能规则,人工智能
+  - RULE-SET,苹果代理规则,苹果代理
+  - RULE-SET,苹果服务规则,苹果服务
+  - RULE-SET,油管视频规则,油管视频
+  # 谷歌网盘必须先于谷歌通用域名匹配。
+  - RULE-SET,视频与网盘规则,视频与网盘
+  - RULE-SET,谷歌服务规则,谷歌服务
+  - RULE-SET,社交平台规则,脸书与社交
+  - RULE-SET,美国服务规则,美国服务
+  - RULE-SET,美国手机卡规则,美国手机卡
+  - RULE-SET,网页浏览规则,网页浏览
   - GEOIP,CN,DIRECT
   - MATCH,兜底
