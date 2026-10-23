@@ -1,0 +1,4 @@
+# Converted from M48A1/Surge/UltraMobile.list
+payload:
+  - "DOMAIN-SUFFIX,ultramobile.com"
+  - "DOMAIN-SUFFIX,ultra.me"

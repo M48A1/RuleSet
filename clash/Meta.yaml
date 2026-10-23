@@ -1,0 +1,41 @@
+# Converted from M48A1/Surge/Meta.list
+payload:
+# ==========================================================
+# Meta Services
+# ==========================================================
+
+# Facebook
+  - "DOMAIN-SUFFIX,facebook.com"
+  - "DOMAIN-SUFFIX,facebook.net"
+  - "DOMAIN-SUFFIX,fb.com"
+  - "DOMAIN-SUFFIX,fb.me"
+  - "DOMAIN-SUFFIX,fbcdn.net"
+  - "DOMAIN-SUFFIX,fbcdn.com"
+  - "DOMAIN-SUFFIX,fbcdn-a.akamaihd.net"
+
+# Messenger
+  - "DOMAIN-SUFFIX,messenger.com"
+  - "DOMAIN-SUFFIX,m.me"
+
+# Instagram
+  - "DOMAIN-SUFFIX,instagram.com"
+  - "DOMAIN-SUFFIX,cdninstagram.com"
+  - "DOMAIN-SUFFIX,instagr.am"
+  - "DOMAIN-SUFFIX,ig.me"
+  - "DOMAIN-SUFFIX,igcdn.com"
+  - "DOMAIN-SUFFIX,igsonar.com"
+
+# Threads
+  - "DOMAIN-SUFFIX,threads.net"
+
+# WhatsApp
+  - "DOMAIN-SUFFIX,whatsapp.com"
+  - "DOMAIN-SUFFIX,whatsapp.net"
+  - "DOMAIN-SUFFIX,whatsapp.biz"
+  - "DOMAIN-SUFFIX,wa.me"
+
+# Meta Shared Infrastructure
+  - "DOMAIN-SUFFIX,meta.com"
+  - "DOMAIN-SUFFIX,fbsbx.com"
+  - "DOMAIN-SUFFIX,fbsbx.net"
+  - "DOMAIN-SUFFIX,fburl.com"

@@ -1,0 +1,10 @@
+# Converted from M48A1/Surge/YouTube.list
+payload:
+# YouTube
+  - "DOMAIN-SUFFIX,youtube.com"
+  - "DOMAIN-SUFFIX,youtu.be"
+  - "DOMAIN-SUFFIX,ytimg.com"
+  - "DOMAIN-SUFFIX,googlevideo.com"
+  - "DOMAIN,youtubei.googleapis.com"
+  - "DOMAIN-SUFFIX,gvt1.com"
+  - "DOMAIN-SUFFIX,gvt2.com"
