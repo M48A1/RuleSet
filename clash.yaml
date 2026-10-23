@@ -22,9 +22,8 @@ tun:
 
 dns:
   enable: true
-  # 优先使用 HTTP/3（DoH3）；保留普通 DoH 兼容性。
-  # 国外 DNS 经代理使用 DoH3 时，所选节点需要支持 UDP 转发。
-  prefer-h3: true
+  # 使用普通 DoH（HTTPS/TCP），兼容不支持 UDP 转发的代理节点。
+  prefer-h3: false
   listen: 127.0.0.1:1053
   ipv6: false
   enhanced-mode: fake-ip
