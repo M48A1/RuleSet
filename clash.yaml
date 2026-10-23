@@ -33,11 +33,20 @@ dns:
   default-nameserver:
     - 223.5.5.5
     - 119.29.29.29
+  # 节点服务器域名直连解析，避免 DNS 依赖代理自身。
   proxy-server-nameserver:
-    - https://dns.alidns.com/dns-query
+    - "https://dns.alidns.com/dns-query#DIRECT"
+    - "https://doh.pub/dns-query#DIRECT"
+  # 其余域名使用国外 DoH，通过“节点选择”发送请求。
+  # 必须先在该策略组选择真实节点；选择 DIRECT 时仍会直连。
   nameserver:
-    - https://dns.alidns.com/dns-query
-    - https://doh.pub/dns-query
+    - "https://1.1.1.1/dns-query#节点选择"
+    - "https://8.8.8.8/dns-query#节点选择"
+  # 国内域名使用国内 DoH；需要客户端的 geosite.dat 包含 cn 分类。
+  nameserver-policy:
+    "geosite:cn":
+      - "https://dns.alidns.com/dns-query#DIRECT"
+      - "https://doh.pub/dns-query#DIRECT"
 
 # 将 [] 删除，在下一行粘贴安装脚本输出的“  - name: ...”整段。
 proxies: []
