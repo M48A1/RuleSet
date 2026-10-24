@@ -1,6 +1,6 @@
 # Clash/Mihomo 配置；需要 Mihomo 内核。
-# 先把自己的节点粘贴到 proxies 下，再在客户端的“Proxy”中选择节点。
-# 当前没有真实节点；添加前仅能直连。请勿将节点密码提交到公开仓库。
+# 先在本地填写 proxies 下的节点参数，再在客户端的“Proxy”中选择节点。
+# 当前 4 个节点均为占位模板，无法连接；填写前请保持 DIRECT。请勿将真实节点认证信息提交到公开仓库。
 # 混合代理端口
 mixed-port: 7890
 # 是否允许局域网设备连接
@@ -59,24 +59,70 @@ dns:
       - "https://dns.alidns.com/dns-query#DIRECT"
       - "https://doh.pub/dns-query#DIRECT"
 
-# 将 [] 删除，在下一行粘贴安装脚本输出的“  - name: ...”整段。
-# 节点填写区域
-proxies: []
-# 示例结构（填写真实参数后取消注释）：
-#  - name: MyNode
-#    type: vless
-#    server: YOUR_SERVER
-#    port: 443
-#    uuid: YOUR_UUID
-#    network: tcp
-#    udp: true
-#    tls: true
-#    flow: xtls-rprx-vision
-#    servername: YOUR_SNI
-#    client-fingerprint: chrome
-#    reality-opts:
-#      public-key: YOUR_PUBLIC_KEY
-#      short-id: "YOUR_SHORT_ID"
+# 节点模板：以下为 VLESS + TCP + TLS，占位参数不能用于连接。
+# 请在本地副本中替换 server、port、uuid 和 servername；不要公开真实认证信息。
+# 如使用 Reality，请按服务端配置启用各节点下方的 flow / reality-opts，
+# 并填写 public-key、short-id；普通 TLS 节点不要启用这些 Reality 字段。
+proxies:
+  - name: SGP
+    type: vless
+    server: sgp.example.invalid # 替换为服务器域名或 IP
+    port: 443 # 替换为实际端口
+    uuid: "00000000-0000-4000-8000-000000000001" # 占位 UUID，请替换
+    network: tcp
+    udp: true
+    tls: true
+    servername: example.invalid # 替换为实际 TLS SNI
+    client-fingerprint: chrome
+    # flow: xtls-rprx-vision # 仅在服务端启用该流控时填写
+    # reality-opts:
+    #   public-key: "YOUR_PUBLIC_KEY"
+    #   short-id: "YOUR_SHORT_ID"
+
+  - name: SJC
+    type: vless
+    server: sjc.example.invalid # 替换为服务器域名或 IP
+    port: 443 # 替换为实际端口
+    uuid: "00000000-0000-4000-8000-000000000002" # 占位 UUID，请替换
+    network: tcp
+    udp: true
+    tls: true
+    servername: example.invalid # 替换为实际 TLS SNI
+    client-fingerprint: chrome
+    # flow: xtls-rprx-vision # 仅在服务端启用该流控时填写
+    # reality-opts:
+    #   public-key: "YOUR_PUBLIC_KEY"
+    #   short-id: "YOUR_SHORT_ID"
+
+  - name: GEN2
+    type: vless
+    server: gen2.example.invalid # 替换为服务器域名或 IP
+    port: 443 # 替换为实际端口
+    uuid: "00000000-0000-4000-8000-000000000003" # 占位 UUID，请替换
+    network: tcp
+    udp: true
+    tls: true
+    servername: example.invalid # 替换为实际 TLS SNI
+    client-fingerprint: chrome
+    # flow: xtls-rprx-vision # 仅在服务端启用该流控时填写
+    # reality-opts:
+    #   public-key: "YOUR_PUBLIC_KEY"
+    #   short-id: "YOUR_SHORT_ID"
+
+  - name: FRA
+    type: vless
+    server: fra.example.invalid # 替换为服务器域名或 IP
+    port: 443 # 替换为实际端口
+    uuid: "00000000-0000-4000-8000-000000000004" # 占位 UUID，请替换
+    network: tcp
+    udp: true
+    tls: true
+    servername: example.invalid # 替换为实际 TLS SNI
+    client-fingerprint: chrome
+    # flow: xtls-rprx-vision # 仅在服务端启用该流控时填写
+    # reality-opts:
+    #   public-key: "YOUR_PUBLIC_KEY"
+    #   short-id: "YOUR_SHORT_ID"
 
 # 手动选择各类服务使用的节点
 proxy-groups:
