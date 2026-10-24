@@ -1,0 +1,55 @@
+{
+  "version": 3,
+  "rules": [
+    {
+      "domain_suffix": [
+        "959722.xyz"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "googledrive.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "drive.google.com"
+      ]
+    },
+    {
+      "domain": [
+        "drive.usercontent.google.com"
+      ]
+    },
+    {
+      "domain": [
+        "drive-data-export.usercontent.google.com"
+      ]
+    },
+    {
+      "domain": [
+        "drive-data-export-eu.usercontent.google.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "drive.googleusercontent.com"
+      ]
+    },
+    {
+      "domain": [
+        "drive.googleapis.com"
+      ]
+    },
+    {
+      "domain": [
+        "driveactivity.googleapis.com"
+      ]
+    },
+    {
+      "domain": [
+        "drivelabels.googleapis.com"
+      ]
+    }
+  ]
+}

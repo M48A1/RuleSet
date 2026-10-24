@@ -1,0 +1,80 @@
+{
+  "version": 3,
+  "rules": [
+    {
+      "domain_suffix": [
+        "netcup.com"
+      ]
+    },
+    {
+      "domain": [
+        "mobilepaas.abchina.com.cn"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "dnschecker.org"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "deepseek.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "siliconflow.cn"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "siliconflow.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "5gd.cn"
+      ]
+    },
+    {
+      "domain": [
+        "mb-mbc.cdn-static.abchina.com.cn"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "tideswing.fun"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "jpush.cn"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "zhibo8.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "zhibo8.cc"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "360buyimg.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "jd.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "right.com.cn"
+      ]
+    }
+  ]
+}

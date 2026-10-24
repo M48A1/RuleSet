@@ -1,0 +1,40 @@
+{
+  "version": 3,
+  "rules": [
+    {
+      "domain_suffix": [
+        "youtube.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "youtu.be"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "ytimg.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "googlevideo.com"
+      ]
+    },
+    {
+      "domain": [
+        "youtubei.googleapis.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "gvt1.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "gvt2.com"
+      ]
+    }
+  ]
+}

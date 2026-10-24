@@ -1,0 +1,115 @@
+{
+  "version": 3,
+  "rules": [
+    {
+      "domain_suffix": [
+        "google.com"
+      ]
+    },
+    {
+      "domain": [
+        "www.google.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "googleapis.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "gstatic.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "googleusercontent.com"
+      ]
+    },
+    {
+      "domain": [
+        "userlocations.googleapis.com"
+      ]
+    },
+    {
+      "domain": [
+        "accounts.google.com"
+      ]
+    },
+    {
+      "domain": [
+        "clients1.google.com"
+      ]
+    },
+    {
+      "domain": [
+        "clients2.google.com"
+      ]
+    },
+    {
+      "domain": [
+        "dns.google.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "withgoogle.com"
+      ]
+    },
+    {
+      "domain": [
+        "play.google.com"
+      ]
+    },
+    {
+      "domain": [
+        "ogs.google.com"
+      ]
+    },
+    {
+      "domain": [
+        "apis.google.com"
+      ]
+    },
+    {
+      "domain": [
+        "csp.withgoogle.com"
+      ]
+    },
+    {
+      "domain": [
+        "consent.google.com"
+      ]
+    },
+    {
+      "domain": [
+        "wallet.google.com"
+      ]
+    },
+    {
+      "domain": [
+        "myaccount.google.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "gmail.com"
+      ]
+    },
+    {
+      "domain": [
+        "inbox.google.com"
+      ]
+    },
+    {
+      "domain": [
+        "mail.google.com"
+      ]
+    },
+    {
+      "domain": [
+        "translate.google.com"
+      ]
+    }
+  ]
+}

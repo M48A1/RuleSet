@@ -1,0 +1,370 @@
+{
+  "version": 3,
+  "rules": [
+    {
+      "domain": [
+        "ip.net.coffee"
+      ]
+    },
+    {
+      "domain_regex": [
+        "^chatgpt\\-async\\-webps\\-prod\\-.*\\.webpubsub\\.azure\\.com$"
+      ]
+    },
+    {
+      "domain_regex": [
+        "^openaicom\\-api\\-.*\\.azurefd\\.net$"
+      ]
+    },
+    {
+      "domain": [
+        "chatgpt.livekit.cloud"
+      ]
+    },
+    {
+      "domain": [
+        "host.livekit.cloud"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "turn.livekit.cloud"
+      ]
+    },
+    {
+      "domain": [
+        "openai.com.cdn.cloudflare.net"
+      ]
+    },
+    {
+      "domain": [
+        "openaiapi-site.azureedge.net"
+      ]
+    },
+    {
+      "domain": [
+        "openaicomproductionae4b.blob.core.windows.net"
+      ]
+    },
+    {
+      "domain": [
+        "production-openaicom-storage.azureedge.net"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "chat.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "chatgpt.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "oaistatic.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "oaiusercontent.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "openai.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "sora.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "ai.google"
+      ]
+    },
+    {
+      "domain": [
+        "ai.google.dev"
+      ]
+    },
+    {
+      "domain": [
+        "makersuite.google.com"
+      ]
+    },
+    {
+      "domain": [
+        "aistudio.google.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "gemini.google.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "notebooklm.google.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "notebooklm.google"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "generativelanguage.googleapis.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "alkalimakersuite-pa.googleapis.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "deepmind.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "deepmind.google"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "generativeai.google"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "colab.google.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "gemini.gstatic.com"
+      ]
+    },
+    {
+      "domain": [
+        "alkalimakersuite-pa.clients6.google.com"
+      ]
+    },
+    {
+      "domain": [
+        "api.githubcopilot.com"
+      ]
+    },
+    {
+      "domain": [
+        "copilot-proxy.githubusercontent.com"
+      ]
+    },
+    {
+      "domain": [
+        "copilot.microsoft.com"
+      ]
+    },
+    {
+      "domain": [
+        "sydney.bing.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "githubcopilot.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "ai.google"
+      ]
+    },
+    {
+      "domain": [
+        "ai.google.dev"
+      ]
+    },
+    {
+      "domain": [
+        "makersuite.google.com"
+      ]
+    },
+    {
+      "domain": [
+        "aistudio.google.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "gemini.google.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "notebooklm.google.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "notebooklm.google"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "generativelanguage.googleapis.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "alkalimakersuite-pa.googleapis.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "deepmind.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "deepmind.google"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "generativeai.google"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "colab.google.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "gemini.gstatic.com"
+      ]
+    },
+    {
+      "domain": [
+        "alkalimakersuite-pa.clients6.google.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "anthropic.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "claude.ai"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "claude.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "clau.de"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "claudeusercontent.com"
+      ]
+    },
+    {
+      "ip_cidr": [
+        "160.79.104.0/23"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "grazie.ai"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "grazie.aws.intellij.net"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "jetbrains.ai"
+      ]
+    },
+    {
+      "domain": [
+        "imagine.meta.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "meta.ai"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "pplx.ai"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "perplexity.ai"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "perplexity.com"
+      ]
+    },
+    {
+      "domain": [
+        "chat.mistral.ai"
+      ]
+    },
+    {
+      "domain": [
+        "console.mistral.ai"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "mistral.ai"
+      ]
+    },
+    {
+      "domain": [
+        "api.x.ai"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "x.ai"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "grok.com"
+      ]
+    },
+    {
+      "domain": [
+        "trae-api-sg.mchost.guru"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "trae.ai"
+      ]
+    }
+  ]
+}

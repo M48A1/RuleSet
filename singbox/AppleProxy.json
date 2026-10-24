@@ -1,0 +1,180 @@
+{
+  "version": 3,
+  "rules": [
+    {
+      "domain": [
+        "gateway.icloud.com"
+      ]
+    },
+    {
+      "domain": [
+        "seed.siri.apple.com"
+      ]
+    },
+    {
+      "domain": [
+        "probe.icloud.com"
+      ]
+    },
+    {
+      "domain": [
+        "metrics.icloud.com"
+      ]
+    },
+    {
+      "domain": [
+        "guzzoni.apple.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "smoot.apple.com"
+      ]
+    },
+    {
+      "domain": [
+        "apple-relay.apple.com"
+      ]
+    },
+    {
+      "domain": [
+        "apple-relay.cloudflare.com"
+      ]
+    },
+    {
+      "domain": [
+        "apple-relay.fastly-edge.com"
+      ]
+    },
+    {
+      "domain": [
+        "cp4.cloudflare.com"
+      ]
+    },
+    {
+      "domain": [
+        "apple-relay.mask.apple-dns.net"
+      ]
+    },
+    {
+      "domain": [
+        "mask-api.icloud.com"
+      ]
+    },
+    {
+      "domain": [
+        "mask-api.fe2.apple-dns.net"
+      ]
+    },
+    {
+      "domain": [
+        "apple-relay.akamaized.net"
+      ]
+    },
+    {
+      "domain": [
+        "apple-carry-relay.cloudflare.com"
+      ]
+    },
+    {
+      "domain": [
+        "gspe1-ssl.ls.apple.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "apple-relay.apple.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "apple-relay.fastly-edge.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "apple-relay.cloudflare.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "apple-relay.akamaized.net"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "guzzoni.apple.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "cp4.cloudflare.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "gspe1-ssl.ls.apple.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "apps.mzstatic.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "podcasts.apple.com"
+      ]
+    },
+    {
+      "domain": [
+        "bookkeeper.itunes.apple.com"
+      ]
+    },
+    {
+      "domain": [
+        "amp-api.fitness.apple.com"
+      ]
+    },
+    {
+      "domain": [
+        "apple-tv-plus-press.apple.com"
+      ]
+    },
+    {
+      "domain": [
+        "hls-amt.itunes.apple.com"
+      ]
+    },
+    {
+      "domain": [
+        "hls.itunes.apple.com"
+      ]
+    },
+    {
+      "domain": [
+        "np-edge.itunes.apple.com"
+      ]
+    },
+    {
+      "domain": [
+        "play-edge.itunes.apple.com"
+      ]
+    },
+    {
+      "domain": [
+        "tv.applemusic.com"
+      ]
+    },
+    {
+      "domain": [
+        "uts-api.itunes.apple.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "tv.apple.com"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "version": 3,
+  "rules": [
+    {
+      "domain": [
+        "blog.sinohyper.com"
+      ]
+    },
+    {
+      "domain": [
+        "monitor.sinohyper.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "sb.sb"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "bo.ke"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "yandex.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "wikipedia.org"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "wikimedia.org"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "nodeseek.org"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "nodeseek.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "nodeimage.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "2libra.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "vercel.app"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "vercel.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "nssurge.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "v2ex.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "v2core.com"
+      ]
+    },
+    {
+      "domain_keyword": [
+        "v2ex"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "greasyfork.org"
+      ]
+    },
+    {
+      "domain_keyword": [
+        "greasyfork"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "mozilla.org"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "yahoo.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "gitlab.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "imgur.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "kagi.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "weather-in-calendar.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "fut.gg"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "futbin.com"
+      ]
+    }
+  ]
+}
