@@ -1,6 +1,6 @@
 # Clash/Mihomo 配置；需要 Mihomo 内核。
-# 先在本地填写 proxies 下的节点参数，再为各服务选择 Proxy、SGP、SJC、GEN2 或 FRA。
-# 当前 4 个节点均为占位模板，无法连接；填写前请保持 DIRECT。请勿将真实节点认证信息提交到公开仓库。
+# 先在本地填写 proxies 下的节点参数，再为各服务选择 Proxy、SGP、SJC、GEN2、FRA 或 reflect。
+# 当前 5 个节点均为占位模板，无法连接；填写前请保持 DIRECT。请勿将真实节点认证信息提交到公开仓库。
 # 混合代理端口
 mixed-port: 7890
 # 是否允许局域网设备连接
@@ -124,13 +124,28 @@ proxies:
     #   public-key: "YOUR_PUBLIC_KEY"
     #   short-id: "YOUR_SHORT_ID"
 
+  - name: reflect-Node
+    type: vless
+    server: reflect.example.invalid # 替换为服务器域名或 IP
+    port: 443 # 替换为实际端口
+    uuid: "00000000-0000-4000-8000-000000000005" # 占位 UUID，请替换
+    network: tcp
+    udp: true
+    tls: true
+    servername: example.invalid # 替换为实际 TLS SNI
+    client-fingerprint: chrome
+    # flow: xtls-rprx-vision # 仅在服务端启用该流控时填写
+    # reality-opts:
+    #   public-key: "YOUR_PUBLIC_KEY"
+    #   short-id: "YOUR_SHORT_ID"
+
 # 手动选择各类服务使用的节点
 proxy-groups:
   - name: Proxy
     type: select
     include-all: true
     # 专属节点由同名独立组管理；Proxy 收录其余通用节点。
-    exclude-filter: "^(SGP|SJC|GEN2|FRA)-Node$"
+    exclude-filter: "^(SGP|SJC|GEN2|FRA|reflect)-Node$"
     proxies:
       - DIRECT
   - name: SGP
@@ -149,6 +164,10 @@ proxy-groups:
     type: select
     proxies:
       - FRA-Node
+  - name: reflect
+    type: select
+    proxies:
+      - reflect-Node
   - name: AI
     type: select
     proxies:
@@ -157,6 +176,7 @@ proxy-groups:
       - SJC
       - GEN2
       - FRA
+      - reflect
       - DIRECT
   - name: AppleProxy
     type: select
@@ -166,6 +186,7 @@ proxy-groups:
       - SJC
       - GEN2
       - FRA
+      - reflect
       - DIRECT
   - name: Apple
     type: select
@@ -176,6 +197,7 @@ proxy-groups:
       - SJC
       - GEN2
       - FRA
+      - reflect
   - name: YouTube
     type: select
     proxies:
@@ -184,6 +206,7 @@ proxy-groups:
       - SJC
       - GEN2
       - FRA
+      - reflect
       - DIRECT
   - name: Video
     type: select
@@ -193,6 +216,7 @@ proxy-groups:
       - SJC
       - GEN2
       - FRA
+      - reflect
       - DIRECT
   - name: Google
     type: select
@@ -202,6 +226,7 @@ proxy-groups:
       - SJC
       - GEN2
       - FRA
+      - reflect
       - DIRECT
   - name: Meta
     type: select
@@ -211,6 +236,7 @@ proxy-groups:
       - SJC
       - GEN2
       - FRA
+      - reflect
       - DIRECT
   - name: USHome
     type: select
@@ -220,6 +246,7 @@ proxy-groups:
       - SJC
       - GEN2
       - FRA
+      - reflect
       - DIRECT
   - name: UltraMobile
     type: select
@@ -229,6 +256,7 @@ proxy-groups:
       - SJC
       - GEN2
       - FRA
+      - reflect
       - DIRECT
   - name: Surfing
     type: select
@@ -238,6 +266,7 @@ proxy-groups:
       - SJC
       - GEN2
       - FRA
+      - reflect
       - DIRECT
   - name: Final
     type: select
@@ -247,6 +276,7 @@ proxy-groups:
       - SJC
       - GEN2
       - FRA
+      - reflect
       - DIRECT
 
 # 远程规则集，每天更新一次
