@@ -151,6 +151,11 @@ proxies:
 
 # 手动选择各类服务使用的节点
 proxy-groups:
+  # 拒绝规则命中后交由 antiad 组处理。
+  - name: antiad
+    type: select
+    proxies:
+      - REJECT
   - name: Proxy
     type: select
     include-all: true
@@ -386,7 +391,7 @@ rules:
   - IP-CIDR,169.254.0.0/16,DIRECT,no-resolve
   - DOMAIN-SUFFIX,lan,DIRECT
   - DOMAIN-SUFFIX,local,DIRECT
-  - RULE-SET,RejectRule,REJECT
+  - RULE-SET,RejectRule,antiad
   - RULE-SET,DirectRule,DIRECT
   # 人工智能与苹果代理优先于谷歌、苹果通用规则。
   - RULE-SET,Ai,AI
