@@ -13,6 +13,16 @@ log-level: info
 ipv6: false
 # 并发建立连接
 tcp-concurrent: true
+# GEO 数据库：供 geosite:cn DNS 策略和 GEOIP,CN 分流使用。
+# GEOIP 使用 MMDB 模式；geosite 使用独立的 geosite.dat。
+geodata-mode: false
+geo-auto-update: true
+geo-update-interval: 24 # 小时
+geox-url:
+  geoip: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat"
+  geosite: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat"
+  mmdb: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb"
+
 # 保存客户端使用状态
 profile:
   store-selected: true
