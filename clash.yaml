@@ -1,5 +1,5 @@
 # Clash/Mihomo 配置；需要 Mihomo 内核。
-# 先在本地填写 proxies 下的节点参数，再在客户端的“Proxy”中选择节点。
+# 先在本地填写 proxies 下的节点参数，再为各服务选择 Proxy、SGP、SJC、GEN2 或 FRA。
 # 当前 4 个节点均为占位模板，无法连接；填写前请保持 DIRECT。请勿将真实节点认证信息提交到公开仓库。
 # 混合代理端口
 mixed-port: 7890
@@ -64,7 +64,7 @@ dns:
 # 如使用 Reality，请按服务端配置启用各节点下方的 flow / reality-opts，
 # 并填写 public-key、short-id；普通 TLS 节点不要启用这些 Reality 字段。
 proxies:
-  - name: SGP
+  - name: SGP-Node
     type: vless
     server: sgp.example.invalid # 替换为服务器域名或 IP
     port: 443 # 替换为实际端口
@@ -79,7 +79,7 @@ proxies:
     #   public-key: "YOUR_PUBLIC_KEY"
     #   short-id: "YOUR_SHORT_ID"
 
-  - name: SJC
+  - name: SJC-Node
     type: vless
     server: sjc.example.invalid # 替换为服务器域名或 IP
     port: 443 # 替换为实际端口
@@ -94,7 +94,7 @@ proxies:
     #   public-key: "YOUR_PUBLIC_KEY"
     #   short-id: "YOUR_SHORT_ID"
 
-  - name: GEN2
+  - name: GEN2-Node
     type: vless
     server: gen2.example.invalid # 替换为服务器域名或 IP
     port: 443 # 替换为实际端口
@@ -109,7 +109,7 @@ proxies:
     #   public-key: "YOUR_PUBLIC_KEY"
     #   short-id: "YOUR_SHORT_ID"
 
-  - name: FRA
+  - name: FRA-Node
     type: vless
     server: fra.example.invalid # 替换为服务器域名或 IP
     port: 443 # 替换为实际端口
@@ -129,62 +129,124 @@ proxy-groups:
   - name: Proxy
     type: select
     include-all: true
+    # 专属节点由同名独立组管理；Proxy 收录其余通用节点。
+    exclude-filter: "^(SGP|SJC|GEN2|FRA)-Node$"
     proxies:
       - DIRECT
+  - name: SGP
+    type: select
+    proxies:
+      - SGP-Node
+  - name: SJC
+    type: select
+    proxies:
+      - SJC-Node
+  - name: GEN2
+    type: select
+    proxies:
+      - GEN2-Node
+  - name: FRA
+    type: select
+    proxies:
+      - FRA-Node
   - name: AI
     type: select
     proxies:
       - Proxy
+      - SGP
+      - SJC
+      - GEN2
+      - FRA
       - DIRECT
   - name: AppleProxy
     type: select
     proxies:
       - Proxy
+      - SGP
+      - SJC
+      - GEN2
+      - FRA
       - DIRECT
   - name: Apple
     type: select
     proxies:
       - DIRECT
       - Proxy
+      - SGP
+      - SJC
+      - GEN2
+      - FRA
   - name: YouTube
     type: select
     proxies:
       - Proxy
+      - SGP
+      - SJC
+      - GEN2
+      - FRA
       - DIRECT
   - name: Video
     type: select
     proxies:
       - Proxy
+      - SGP
+      - SJC
+      - GEN2
+      - FRA
       - DIRECT
   - name: Google
     type: select
     proxies:
       - Proxy
+      - SGP
+      - SJC
+      - GEN2
+      - FRA
       - DIRECT
   - name: Meta
     type: select
     proxies:
       - Proxy
+      - SGP
+      - SJC
+      - GEN2
+      - FRA
       - DIRECT
   - name: USHome
     type: select
     proxies:
       - Proxy
+      - SGP
+      - SJC
+      - GEN2
+      - FRA
       - DIRECT
   - name: UltraMobile
     type: select
     proxies:
       - Proxy
+      - SGP
+      - SJC
+      - GEN2
+      - FRA
       - DIRECT
   - name: Surfing
     type: select
     proxies:
       - Proxy
+      - SGP
+      - SJC
+      - GEN2
+      - FRA
       - DIRECT
   - name: Final
     type: select
     proxies:
       - Proxy
+      - SGP
+      - SJC
+      - GEN2
+      - FRA
       - DIRECT
 
 # 远程规则集，每天更新一次
