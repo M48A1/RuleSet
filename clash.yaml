@@ -13,7 +13,7 @@ log-level: info
 ipv6: false
 # 并发建立连接
 tcp-concurrent: true
-# GEO 数据库：供 geosite:cn DNS 策略和 GEOIP,CN 分流使用。
+# GEO 数据库：供 DNS 策略、GitHub / 国内域名及 GEOIP,CN 分流使用。
 # GEOIP 使用 MMDB 模式；geosite 使用独立的 geosite.dat。
 geodata-mode: false
 geo-auto-update: true
@@ -281,6 +281,16 @@ proxy-groups:
       - FRA
       - reflect
       - DIRECT
+  - name: GitHub
+    type: select
+    proxies:
+      - Proxy
+      - SGP
+      - SJC
+      - GEN2
+      - FRA
+      - reflect
+      - DIRECT
   - name: Final
     type: select
     proxies:
@@ -403,5 +413,9 @@ rules:
   - RULE-SET,USHome,USHome
   - RULE-SET,UltraMobile,UltraMobile
   - RULE-SET,Surfing,Surfing
+  # Copilot 已由前面的 AI 规则优先匹配，其余 GitHub 服务使用独立策略组。
+  - GEOSITE,github,GitHub
+  # 国内域名直连，置于自定义服务规则之后以保留其优先级。
+  - GEOSITE,cn,DIRECT
   - GEOIP,CN,DIRECT
   - MATCH,Final
