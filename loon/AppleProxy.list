@@ -1,0 +1,55 @@
+
+# Apple / Siri / iCloud
+DOMAIN,gateway.icloud.com
+DOMAIN,seed.siri.apple.com
+DOMAIN,probe.icloud.com
+DOMAIN,metrics.icloud.com
+
+DOMAIN,guzzoni.apple.com
+DOMAIN-SUFFIX,smoot.apple.com
+
+# Apple Intelligence / Private Cloud Compute
+DOMAIN,apple-relay.apple.com
+DOMAIN,apple-relay.cloudflare.com
+DOMAIN,apple-relay.fastly-edge.com
+DOMAIN,cp4.cloudflare.com
+
+# Apple Intelligence relay / bootstrap
+DOMAIN,apple-relay.mask.apple-dns.net
+DOMAIN,mask-api.icloud.com
+DOMAIN,mask-api.fe2.apple-dns.net
+DOMAIN,apple-relay.akamaized.net
+DOMAIN,apple-carry-relay.cloudflare.com
+
+# Apple region determination
+DOMAIN,gspe1-ssl.ls.apple.com
+
+# Apple Intelligence
+DOMAIN-SUFFIX,apple-relay.apple.com
+DOMAIN-SUFFIX,apple-relay.fastly-edge.com
+DOMAIN-SUFFIX,apple-relay.cloudflare.com
+DOMAIN-SUFFIX,apple-relay.akamaized.net
+DOMAIN-SUFFIX,guzzoni.apple.com
+DOMAIN-SUFFIX,cp4.cloudflare.com
+DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com
+DOMAIN-SUFFIX,apps.mzstatic.com
+
+# Podcast：使用外区账号或国外节目加载异常时保留
+DOMAIN-SUFFIX,podcasts.apple.com
+DOMAIN,bookkeeper.itunes.apple.com
+
+
+# Fitness
+DOMAIN,amp-api.fitness.apple.com
+
+# Apple TV+ 主站及视频服务
+
+DOMAIN,apple-tv-plus-press.apple.com
+DOMAIN,hls-amt.itunes.apple.com
+DOMAIN,hls.itunes.apple.com
+DOMAIN,np-edge.itunes.apple.com
+DOMAIN,play-edge.itunes.apple.com
+DOMAIN,tv.applemusic.com
+DOMAIN,uts-api.itunes.apple.com
+DOMAIN-SUFFIX,tv.apple.com
+
