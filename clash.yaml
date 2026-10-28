@@ -159,8 +159,6 @@ proxy-groups:
   - name: Proxy
     type: select
     include-all: true
-    # 专属节点由同名独立组管理；Proxy 收录其余通用节点。
-    exclude-filter: "^(SGP|SJC|GEN2|FRA|reflect)-Node$"
     proxies:
       - DIRECT
   - name: SGP
