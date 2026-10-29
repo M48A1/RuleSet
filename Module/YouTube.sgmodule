@@ -1,4 +1,5 @@
 #!name=Youtube (Music) Enhance
+#!category= AntiAD
 #!desc=适用于 Youtube & Youtube Music
 #!arguments=屏蔽上传按钮:true,屏蔽选段按钮:true,屏蔽Shorts按钮:false,启用调试模式:false
 #!arguments-desc=- 屏蔽参数：[true, false] \n- 开启调试模式用于输出更多日志
