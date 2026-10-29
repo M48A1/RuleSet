@@ -308,3 +308,251 @@ URL-REGEX,^https:\/\/video-dsp\.pddpic\.com\/market-dsp-video\/
 URL-REGEX,^https:\/\/t-dsp\.pinduoduo\.com\/dspcb\/i\/mrk_
 URL-REGEX,^https:\/\/images\.pinduoduo\.com\/mrk\/
 URL-REGEX,^https:\/\/images\.pinduoduo\.com\/marketing_api\/
+
+# 拦截 HTTPDNS（Surge RULE-SET 转换）
+# 原作者：VirgilClyne
+# 来源：https://github.com/QingRex/LoonKissSurge/blob/main/Surge/Official/拦截HTTPDNS.official.sgmodule
+# 转换日期：2026-10-29；移除逐条策略和 pre-matching，保留匹配范围。
+# 以下模块设置不能写入规则集，仅作主配置参考；未自动修改主配置。
+# HTTPS URL 规则需相应 MITM，HTTP URL 规则需流量经过 HTTP 引擎。
+# [General] force-http-engine-hosts = %APPEND% 119.29.29.29:80, dns.weixin.qq.com:80, dns.weixin.qq.com:8080, dns.weixin.qq.com:443
+# [MITM] hostname = %APPEND% 119.29.29.98, 119.29.29.99, amdc.alipay.com, amdc-sibling.alipay.com.cn, dns.jd.com, *.httpdns.pro
+
+# HTTPDNS 域名与 IP 规则
+# Alibaba
+DOMAIN,httpdns.alicdn.com,extended-matching
+
+# Aliyun
+# refer: https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/download%2Fpdf%2F30114%2F%25E7%2594%25A8%25E6%2588%25B7%25E6%258C%2587%25E5%258D%2597_cn_zh-CN.pdf
+DOMAIN,httpdns-api.aliyuncs.com,extended-matching
+DOMAIN,httpdns-sc.aliyuncs.com,extended-matching
+DOMAIN,resolvers-cn.httpdns.aliyuncs.com,extended-matching
+# refer: http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/pdf/httpdns-api-reference-cn-zh-2016-05-12.pdf
+# refer: http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/pdf/httpdns-product-introduction-cn-zh-2017-05-24.pdf
+# refer: https://help.aliyun.com/document_detail/435282.html
+# refer: https://alidocs.dingtalk.com/i/p/Y7kmbokZp3pgGLq2/docs/lo1YvX0prG98kvEewqNyJPw7xzbmLdEZ
+IP-CIDR,203.107.1.0/24,no-resolve
+
+# Baidu
+DOMAIN,httpsdns.baidu.com,extended-matching
+DOMAIN,httpdns.baidu.com,extended-matching
+
+# BaiduBCE
+# refer: https://bce-cdn.bj.bcebos.com/p3m/pdf/bce-doc/online/HTTPDNS/HTTPDNS.pdf
+DOMAIN,httpdns.baidubce.com,extended-matching
+IP-CIDR,180.76.76.200/32,no-resolve
+
+# Bilibili
+DOMAIN,httpdns.bilivideo.com,extended-matching
+# KEY_EXT_P2P_HTTPDNS_BILI_IP
+IP-CIDR,47.101.175.206/32,no-resolve
+IP-CIDR,47.100.123.169/32,no-resolve
+IP-CIDR,120.46.169.234/32,no-resolve
+IP-CIDR,121.36.72.124/32,no-resolve
+# KEY_EXT_P2P_BILIDNS_CMCC_IP
+IP-CIDR,116.63.10.135/32,no-resolve
+IP-CIDR,122.9.7.134/32,no-resolve
+IP-CIDR,117.185.228.108/32,no-resolve
+IP-CIDR,117.144.238.29/32,no-resolve
+# KEY_EXT_P2P_BILIDNS_CT_IP
+IP-CIDR,122.9.13.79/32,no-resolve
+IP-CIDR,122.9.15.129/32,no-resolve
+IP-CIDR,101.91.140.224/32,no-resolve
+IP-CIDR,101.91.140.124/32,no-resolve
+# KEY_EXT_P2P_BILIDNS_CU_IP
+IP-CIDR,114.116.215.110/32,no-resolve
+IP-CIDR,116.63.10.31/32,no-resolve
+IP-CIDR,112.64.218.119/32,no-resolve
+IP-CIDR,112.65.200.117/32,no-resolve
+
+# Huawei
+DOMAIN,httpdns.c.cdnhwc2.com,extended-matching
+
+# iQIYI
+DOMAIN,doh.iqiyi.com,extended-matching
+
+# JD
+DOMAIN,dns.jd.com,extended-matching
+IP-CIDR,101.124.19.122/32,no-resolve
+IP-CIDR6,2402:db40:5100:1011::5/128,no-resolve
+
+# JD Cloud
+# refer: https://docs.jdcloud.com/cn/jd-cloud-dns/HTTPDNS
+# refer: https://docs.jdcloud.com/cn/httpdns/interface-specification
+IP-CIDR,103.224.222.208/32,no-resolve
+
+# Kuwo
+DOMAIN,httpdns.kg.qq.com,extended-matching
+
+# Keep
+DOMAIN,httpdns.calorietech.com,extended-matching
+
+# Meituan
+DOMAIN,httpdns.meituan.com,extended-matching
+DOMAIN,httpdnsvip.meituan.com,extended-matching
+DOMAIN,httpdnsmultiapi.meituan.com,extended-matching
+DOMAIN,httpdnsmultiapivip.meituan.com,extended-matching
+DOMAIN,dnspod.meituan.httpdns.qcloud.com,extended-matching
+DOMAIN,dnspod.meituan.httpdns.start.qcloud.com,extended-matching
+IP-CIDR,202.90.108.13/32,no-resolve
+IP-CIDR,202.90.110.46/32,no-resolve
+
+# Momo
+DOMAIN,httpdns.immomo.com,extended-matching
+
+# NetEase
+# refer: https://lbs.netease.im/lbs/conf.jsp
+DOMAIN,httpdns.yunxindns.com,extended-matching
+DOMAIN,httpdns.n.netease.com,extended-matching
+DOMAIN,httpdns-sdk.n.netease.com,extended-matching
+DOMAIN,httpdns.music.163.com,extended-matching
+DOMAIN,music.httpdns.c.163.com,extended-matching
+DOMAIN,lofter.httpdns.c.163.com,extended-matching
+IP-CIDR,59.111.239.61/32,no-resolve
+IP-CIDR,59.111.239.62/32,no-resolve
+IP-CIDR,115.236.121.51/32,no-resolve
+IP-CIDR,115.236.121.195/32,no-resolve
+
+# Oppo
+DOMAIN,httpdns.push.oppomobile.com,extended-matching
+
+# Sina
+# refer: https://github.com/CNSRE/HTTPDNSLib
+
+# Tencent Cloud
+# refer：https://cloud.tencent.com/document/product/379/95497
+DOMAIN-SUFFIX,httpdns.pro,extended-matching
+IP-CIDR,119.29.29.98/32,no-resolve
+IP-CIDR,119.29.29.99/32,no-resolve
+
+# Volcengine
+# refer: https://www.volcengine.com/docs/6758/174756
+DOMAIN,httpdns.volcengineapi.com,extended-matching
+
+# Weibo
+DOMAIN,dns.weibo.cn,extended-matching
+IP-CIDR,39.97.128.148/32,no-resolve
+IP-CIDR,39.97.130.51/32,no-resolve
+
+# Wework
+# refer: https://res.mail.qq.com/zh_CN/wework_ip/latest.html
+IP-CIDR,182.254.116.117/32,no-resolve
+IP-CIDR,182.254.118.119/32,no-resolve
+
+# Weixin
+# refer: http://dns.weixin.qq.com/cgi-bin/micromsg-bin/newgetdns
+# refer: https://developers.weixin.qq.com/doc/oplatform/Third-party_Platforms/Mini_Programs/HTTPDNS.html
+DOMAIN,aedns.weixin.qq.com,extended-matching
+DOMAIN,dns.weixin.qq.com,extended-matching
+DOMAIN,dns.weixin.qq.com.cn,extended-matching
+IP-CIDR,42.81.232.18/32,no-resolve
+IP-CIDR,42.187.182.106/32,no-resolve
+IP-CIDR,42.187.182.123/32,no-resolve
+IP-CIDR,42.187.184.154/32,no-resolve
+IP-CIDR,123.151.54.50/32,no-resolve
+IP-CIDR6,2402:4e00:1900:1700:0:9554:1ad9:c3a/128,no-resolve
+IP-CIDR6,240e:928:1400:10::25/128,no-resolve
+
+# Wework
+# refer: https://res.mail.qq.com/zh_CN/wework_ip/latest.html
+
+# YY
+DOMAIN,yuyin-httpdns.gslb.yy.com,extended-matching
+
+# Zhihu
+# refer: https://github.com/lwd-temp/anti-ip-attribution/issues/24
+IP-CIDR,118.89.204.198/32,no-resolve
+IP-CIDR6,2402:4e00:1200:ed00:0:9089:6dac:96b6/128,no-resolve
+
+
+# HTTPDNS URL 规则
+# Alipay
+URL-REGEX,^https?:\/\/amdc\.alipay\.com\/s?query
+URL-REGEX,^https?:\/\/amdc-sibling\.alipay\.com\.cn\/s?query
+URL-REGEX,^https?:\/\/110\.76\.8\.150\/squery
+URL-REGEX,^https?:\/\/203\.209\.230\.39\/squery
+URL-REGEX,^https?:\/\/203\.209\.245\.102\/squery
+URL-REGEX,^https?:\/\/203\.209\.245\.158\/squery
+URL-REGEX,^https?:\/\/203\.209\.247\.95\/squery
+URL-REGEX,^https?:\/\/203\.209\.250\.41\/squery
+URL-REGEX,^https?:\/\/203\.209\.250\.114\/squery
+URL-REGEX,^https?:\/\/203\.209\.251\.147\/squery
+URL-REGEX,^https?:\/\/2400:B180:6001::18F\/squery
+URL-REGEX,^https?:\/\/2400:B200:1005:3000::155\/squery
+URL-REGEX,^https?:\/\/2400:B200:1005:3000::1D3\/squery
+URL-REGEX,^https?:\/\/2400:B200:5000:B000::C8\/squery
+
+# Baidu
+URL-REGEX,^http:\/\/180\.76\.76\.112\/v4\/resolve
+URL-REGEX,^http:\/\/180\.76\.76\.220\/v4\/resolve
+
+# Bilibili
+# KEY_EXT_P2P_HTTPDNS_BILI_IP
+URL-REGEX,^http:\/\/47\.101\.175\.206\/resolve
+URL-REGEX,^http:\/\/47\.100\.123\.169\/resolve
+URL-REGEX,^http:\/\/120\.46\.169\.234\/resolve
+URL-REGEX,^http:\/\/121\.36\.72\.124\/resolve
+# KEY_EXT_P2P_BILIDNS_CMCC_IP
+URL-REGEX,^http:\/\/116\.63\.10\.135\/resolve
+URL-REGEX,^http:\/\/122\.9\.7\.134\/resolve
+URL-REGEX,^http:\/\/117\.185\.228\.108\/resolve
+URL-REGEX,^http:\/\/117\.144\.238\.29\/resolve
+# KEY_EXT_P2P_BILIDNS_CT_IP
+URL-REGEX,^http:\/\/122\.9\.13\.79\/resolve
+URL-REGEX,^http:\/\/122\.9\.15\.129\/resolve
+URL-REGEX,^http:\/\/101\.91\.140\.224\/resolve
+URL-REGEX,^http:\/\/101\.91\.140\.124\/resolve
+# KEY_EXT_P2P_BILIDNS_CU_IP
+URL-REGEX,^http:\/\/114\.116\.215\.110\/resolve
+URL-REGEX,^http:\/\/116\.63\.10\.31\/resolve
+URL-REGEX,^http:\/\/112\.64\.218\.119\/resolve
+URL-REGEX,^http:\/\/112\.65\.200\.117\/resolve
+
+# ByteDance
+URL-REGEX,^https?:\/\/.+\.zijieapi\.com\/get_domains\/
+
+# JD
+URL-REGEX,^https:\/\/dns\.jd\.com\/v6\/b
+
+# Meituan
+URL-REGEX,^http:\/\/103\.37\.155\.60\/fetch
+
+# Pinduoduo
+URL-REGEX,^http:\/\/101\.35\.204\.35\/d
+URL-REGEX,^http:\/\/101\.35\.212\.35\/d
+URL-REGEX,^http:\/\/114\.110\.96\.26\/d
+URL-REGEX,^http:\/\/114\.110\.97\.97\/d
+URL-REGEX,^http:\/\/240c:409f::3:0:163\/d
+URL-REGEX,^http:\/\/240c:409f::3:0:359\/d
+URL-REGEX,^http:\/\/2402:4e00:1411:201:0:9964:ba21:5a41\/d
+
+# QCloud
+# refer: https://mc.qcloudimg.com/static/qc_doc/d39d48b733835af8a2e223115ac67da7/doc-HttpDNS-Getting+Started.pdf
+# refer: https://main.qcloudimg.com/raw/document/product/pdf/379_3513_cn.pdf
+# refer: https://cloud.tencent.com/document/product/379/61200
+URL-REGEX,^https?:\/\/119\.29\.29\.29\/d
+
+# QQmusic
+URL-REGEX,^http:\/\/182\.256\.116\.116\/d
+
+# Weibo
+# refer: https://github.com/CNSRE/HTTPDNSLib-for-iOS
+URL-REGEX,^http:\/\/api\.weibo\.cn\/2\/httpdns\/config
+URL-REGEX,^http:\/\/api\.weibo\.cn\/httpdns\/config
+
+# Weixin
+# 注意: 以下域名HTTPS无法MitM，如通过此链接查询，无法处理
+URL-REGEX,^https?:\/\/dns\.weixin\.qq\.com\/cgi-bin\/micromsg-bin\/newgetdns
+URL-REGEX,^https?:\/\/dns\.weixin\.qq\.com\.cn\/cgi-bin\/micromsg-bin\/newgetdns
+URL-REGEX,^https?:\/\/short\.weixin\.qq\.com\/cgi-bin\/micromsg-bin\/getcdndns
+URL-REGEX,^https?:\/\/hkextshort\.weixin\.qq\.com\/cgi-bin\/micromsg-bin\/getcdndns
+
+# Wework
+# refer: https://res.mail.qq.com/zh_CN/wework_ip/latest.html
+URL-REGEX,^http:\/\/182\.254\.116\.117\/d
+URL-REGEX,^http:\/\/182\.254\.118\.119\/d
+
+# Zhihu
+# refer: https://github.com/lwd-temp/anti-ip-attribution/issues/24
+URL-REGEX,^http:\/\/103\.41\.167\.237\/v2\/resolv
+
