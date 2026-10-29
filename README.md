@@ -57,3 +57,9 @@
   ```text
   https://raw.githubusercontent.com/M48A1/RuleSet/main/Module/zhihu.sgmodule
   ```
+
+- [Reddit Ad Block](https://raw.githubusercontent.com/M48A1/RuleSet/main/Module/RedditAds.sgmodule)
+
+  ```text
+  https://raw.githubusercontent.com/M48A1/RuleSet/main/Module/RedditAds.sgmodule
+  ```

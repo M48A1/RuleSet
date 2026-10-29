@@ -1,0 +1,15 @@
+#!name=Reddit Ad Block
+#!category= AntiAD
+#!desc=Reddit ad removal and enhancements by @ddgksf2013. Requires MITM and a trusted certificate. Preserves upstream content-visibility and client-side Premium display modifications.
+#!author=@ddgksf2013
+
+# Source: https://raw.githubusercontent.com/ddgksf2013/Rewrite/refs/heads/master/AdBlock/RedditAds.conf
+# Upstream configuration: V1.0.4 (2025-05-30)
+# Surge conversion: 2026-10-29
+# Original script is loaded directly; filtering and enhancement behavior is preserved.
+
+[Script]
+RedditAds = type=http-response, pattern=^https?:\/\/gql-fed\.reddit\.com\/$, script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/reddit.js, requires-body=true, max-size=1048576
+
+[MITM]
+hostname = %APPEND% gql-fed.reddit.com
