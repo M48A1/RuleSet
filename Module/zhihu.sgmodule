@@ -1,7 +1,7 @@
 #!name=zhihu
 #!desc=zhihu
 #!icon=icon not found
-#!category=AntiAD
+#!category= AntiAD
 
 [URL Rewrite]
 ^https?:\/\/.*zhihu\.com\/ad-style-service\/request - reject

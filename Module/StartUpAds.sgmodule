@@ -1,4 +1,5 @@
 #!name=墨鱼去开屏 2.0 · Surge
+#!category= AntiAD
 #!desc=原作者 @ddgksf2013；Quantumult X 规则转换。需开启 Rewrite、MITM 并信任证书；与单应用模块重叠时请优先使用单应用模块。
 #!author=@ddgksf2013；贡献者见原配置
 # 来源：https://ddgksf2013.top/rewrite/StartUpAds.conf
