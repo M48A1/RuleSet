@@ -1,5 +1,6 @@
 #!name=航旅纵横净化[墨鱼版·Surge适配]
 #!desc=原作者 @ddgksf2013；自动下载适配脚本；需开启 MITM、信任证书。
+#!category= AntiAD
 
 # 原配置：https://ddgksf2013.top/rewrite/UmetripAds.conf
 # 原脚本：https://ddgksf2013.top/scripts/umetrip.ads.js
