@@ -6,10 +6,11 @@
 # Source: https://raw.githubusercontent.com/ddgksf2013/Rewrite/refs/heads/master/AdBlock/RedditAds.conf
 # Upstream configuration: V1.0.4 (2025-05-30)
 # Surge conversion: 2026-10-29
-# Original script is loaded directly; filtering and enhancement behavior is preserved.
+# Script mirrored from https://github.com/ddgksf2013/Scripts/blob/master/reddit.js
+# Mirror date: 2026-10-30; upstream V1.0.9 and author attribution preserved.
 
 [Script]
-RedditAds = type=http-response, pattern=^https?:\/\/gql-fed\.reddit\.com\/$, script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/reddit.js, requires-body=true, max-size=1048576
+RedditAds = type=http-response, pattern=^https?:\/\/gql-fed\.reddit\.com\/$, script-path=https://raw.githubusercontent.com/M48A1/RuleSet/main/Module/Scripts/reddit.js, requires-body=true, max-size=1048576
 
 [MITM]
 hostname = %APPEND% gql-fed.reddit.com
