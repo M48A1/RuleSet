@@ -1,5 +1,6 @@
 #!name=Redirect2TelegramLite
 #!desc=macOS：将 t.me 链接转为 tg://，需将 Telegram Lite 设为 tg 协议的默认打开应用。
+#!categroy = AntiAD
 #!author=M48A1
 #!moduleUrl=https://raw.githubusercontent.com/M48A1/RuleSet/main/Module/Redirect2TelegramLite.sgmodule
 
