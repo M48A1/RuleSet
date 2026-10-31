@@ -77,3 +77,9 @@
   ```
 
 - [Quantumlt 规则文件列表](Quantumlt/README.md)
+
+- [Redirect2Ng — TG 外链接跳转 Nagram](https://raw.githubusercontent.com/M48A1/RuleSet/main/Module/Redirect2Ng.sgmodule)
+
+  ```text
+  https://raw.githubusercontent.com/M48A1/RuleSet/main/Module/Redirect2Ng.sgmodule
+  ```
