@@ -1,0 +1,16 @@
+#!name=Redirect2TelegramLite
+#!desc=macOS：将 t.me 链接转为 tg://，需将 Telegram Lite 设为 tg 协议的默认打开应用。
+#!author=M48A1
+#!moduleUrl=https://raw.githubusercontent.com/M48A1/RuleSet/main/Module/Redirect2TelegramLite.sgmodule
+
+# Telegram Lite 与其他 Telegram 客户端共用 tg 协议，模块无法强制选择客户端。
+# 与 Redirect2Ng、Redirect2Swift 等 t.me 重定向模块择一启用。
+# 支持用户名、公开消息和邀请链接；其他路径保留网页打开。
+
+[URL Rewrite]
+^https?://t\.me/(?:joinchat/|\+)([A-Za-z0-9_-]+)(?:\?.*)?$ tg://join?invite=$1 307
+^https?://t\.me/([A-Za-z][A-Za-z0-9_]{3,})/([0-9]+)/?(?:\?.*)?$ tg://resolve?domain=$1&post=$2 307
+^https?://t\.me/([A-Za-z][A-Za-z0-9_]{3,})/?$ tg://resolve?domain=$1 307
+
+[MITM]
+hostname = %APPEND% t.me
