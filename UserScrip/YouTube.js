@@ -1,14 +1,14 @@
 // ==UserScript==
-// @name         YouTube 首页 Shorts 屏蔽
+// @name         YouTube 首页 Shorts 与游戏屏蔽
 // @namespace    https://www.youtube.com/
-// @version      1.0.0
-// @description  隐藏 YouTube 首页中的 Shorts 推荐，不影响其他页面和直接观看 Shorts。
+// @version      1.1.0
+// @description  隐藏 YouTube 首页中的 Shorts、即玩游戏及标题明确标注的游戏推荐。
 // @match        https://www.youtube.com/*
 // @match        https://m.youtube.com/*
 // @grant        none
 // @run-at       document-start
-// @downloadURL https://update.greasyfork.org/scripts/592918/YouTube%20%E9%A6%96%E9%A1%B5%20Shorts%20%E5%B1%8F%E8%94%BD.user.js
-// @updateURL https://update.greasyfork.org/scripts/592918/YouTube%20%E9%A6%96%E9%A1%B5%20Shorts%20%E5%B1%8F%E8%94%BD.meta.js
+// @downloadURL  https://raw.githubusercontent.com/M48A1/RuleSet/main/UserScrip/YouTube.js
+// @updateURL    https://raw.githubusercontent.com/M48A1/RuleSet/main/UserScrip/YouTube.js
 // ==/UserScript==
 
 (() => {
@@ -36,7 +36,8 @@
       html[${HIDDEN_ATTRIBUTE}] ytd-reel-shelf-renderer,
       html[${HIDDEN_ATTRIBUTE}] ytm-reel-shelf-renderer,
       html[${HIDDEN_ATTRIBUTE}] [data-hide-home-shorts-shelf],
-      html[${HIDDEN_ATTRIBUTE}] [data-hide-home-shorts-item] {
+      html[${HIDDEN_ATTRIBUTE}] [data-hide-home-shorts-item],
+      html[${HIDDEN_ATTRIBUTE}] [data-hide-home-game] {
         display: none !important;
       }
     `;
@@ -66,10 +67,45 @@
     });
   }
 
+
+  // 只依据明确的游戏入口或标题判断，避免用整张卡片的文字误匹配频道名。
+  function hideGames() {
+    if (!isHomePage()) return;
+    const gameTitle = /游戏|遊戲|即玩|\\b(?:gaming|gameplay|playables)\\b/i;
+    const cards = 'ytd-rich-item-renderer, ytm-rich-item-renderer, ytd-video-renderer, ytm-video-with-context-renderer';
+    const shelves = 'ytd-rich-shelf-renderer, ytd-shelf-renderer, ytm-rich-section-renderer, ytm-shelf-renderer';
+    document.querySelectorAll('[data-hide-home-game]').forEach(el => el.removeAttribute('data-hide-home-game'));
+    document.querySelectorAll(cards).forEach(card => {
+      const title = card.querySelector('#video-title, #video-title-link, h3');
+      const gameLink = [...card.querySelectorAll('a[href]')].some(link => {
+        try {
+          const url = new URL(link.getAttribute('href'), location.origin);
+          return url.origin === location.origin && /^\\/(?:playables|gaming)(?:\\/|$)/.test(url.pathname);
+        } catch { return false; }
+      });
+      card.toggleAttribute('data-hide-home-game', gameLink || gameTitle.test(title?.textContent || ''));
+    });
+    document.querySelectorAll(shelves).forEach(shelf => {
+      const title = shelf.querySelector('#title, #title-text, h2');
+      if (gameTitle.test(title?.textContent || '')) shelf.setAttribute('data-hide-home-game', '');
+    });
+  }
+
+  let gameScanPending = false;
+  function scheduleGameScan() {
+    if (gameScanPending) return;
+    gameScanPending = true;
+    requestAnimationFrame(() => {
+      gameScanPending = false;
+      hideGames();
+    });
+  }
+
   function refresh(root = document) {
     setHomePageState();
     addStyles();
     hideFallbackShortsShelves(root);
+    scheduleGameScan();
   }
 
   refresh();
@@ -77,6 +113,7 @@
   const observer = new MutationObserver((mutations) => {
     if (!isHomePage()) return;
 
+    scheduleGameScan();
     for (const mutation of mutations) {
       for (const node of mutation.addedNodes) {
         if (node.nodeType === Node.ELEMENT_NODE) hideFallbackShortsShelves(node);
@@ -84,7 +121,7 @@
     }
   });
 
-  observer.observe(document.documentElement, { childList: true, subtree: true });
+  observer.observe(document.documentElement, { childList: true, subtree: true, characterData: true });
 
   // YouTube 单页应用的页面切换事件。
   window.addEventListener('yt-navigate-finish', () => refresh());
