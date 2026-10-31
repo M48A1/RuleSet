@@ -83,3 +83,11 @@
   ```text
   https://raw.githubusercontent.com/M48A1/RuleSet/main/Module/Redirect2Ng.sgmodule
   ```
+
+- [Redirect2TelegramLite — macOS TG 外链接跳转](https://raw.githubusercontent.com/M48A1/RuleSet/main/Module/Redirect2TelegramLite.sgmodule)
+
+  ```text
+  https://raw.githubusercontent.com/M48A1/RuleSet/main/Module/Redirect2TelegramLite.sgmodule
+  ```
+
+  需将 Telegram Lite 设为 `tg://` 的默认打开应用；多个客户端共用该协议，模块无法强制选择 Lite。与其他 t.me 重定向模块择一启用。支持用户名、公开消息和邀请链接，其他路径保留网页打开。
