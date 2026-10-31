@@ -63,3 +63,17 @@
   ```text
   https://raw.githubusercontent.com/M48A1/RuleSet/main/Module/RedditAds.sgmodule
   ```
+
+- [Redirect2Swift — TG 外链接跳转 Swiftgram](https://raw.githubusercontent.com/M48A1/RuleSet/main/Module/Redirect2Swift.sgmodule)
+
+  ```text
+  https://raw.githubusercontent.com/M48A1/RuleSet/main/Module/Redirect2Swift.sgmodule
+  ```
+
+- [YouTube 首页 Shorts 与游戏屏蔽（Tampermonkey）](https://raw.githubusercontent.com/M48A1/RuleSet/main/UserScrip/YouTube.js)
+
+  ```text
+  https://raw.githubusercontent.com/M48A1/RuleSet/main/UserScrip/YouTube.js
+  ```
+
+- [Quantumlt 规则文件列表](Quantumlt/README.md)
