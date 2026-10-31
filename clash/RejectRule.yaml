@@ -1,5 +1,0 @@
-# Converted from M48A1/Surge/RejectRule.list
-payload:
-
-# 跳过农行app检测
-  - "DOMAIN,msmp.abchina.com.cn"
