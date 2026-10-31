@@ -91,3 +91,11 @@
   ```
 
   需将 Telegram Lite 设为 `tg://` 的默认打开应用；多个客户端共用该协议，模块无法强制选择 Lite。与其他 t.me 重定向模块择一启用。支持用户名、公开消息和邀请链接，其他路径保留网页打开。
+
+- [Telegram Platform Redirect — macOS / iOS 自动分流](https://raw.githubusercontent.com/M48A1/RuleSet/main/Module/TelegramPlatformRedirect.sgmodule)
+
+  ```text
+  https://raw.githubusercontent.com/M48A1/RuleSet/main/Module/TelegramPlatformRedirect.sgmodule
+  ```
+
+  Surge 请求脚本模块，依赖仓库内的 Module/Scripts/TelegramPlatformRedirect.js。按 User-Agent 推断：macOS → tg://（需默认关联 Telegram Lite）；iOS/iPadOS → sg://（Swiftgram）。iPad 桌面模式若不包含 Mobile 标识，可能被识别为 Mac。支持用户名、公开消息和邀请链接；与其他 t.me 重定向模块择一启用。
