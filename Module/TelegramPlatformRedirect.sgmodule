@@ -1,0 +1,13 @@
+#!name=Telegram Platform Redirect
+#!desc=按 User-Agent 分流：macOS → tg（需默认关联 Telegram Lite），iOS/iPadOS → Swiftgram。iPad 桌面模式可能无法区分。
+#!author=M48A1
+#!moduleUrl=https://raw.githubusercontent.com/M48A1/RuleSet/main/Module/TelegramPlatformRedirect.sgmodule
+
+# Surge 请求脚本模块。与其他 t.me 重定向模块择一启用。
+# 支持用户名、公开消息和邀请链接；其他链接保留网页访问。
+# 依据 User-Agent 推断平台，并非直接读取操作系统。
+[Script]
+TelegramPlatformRedirect = type=http-request,pattern=^https?://t\.me/,script-path=https://raw.githubusercontent.com/M48A1/RuleSet/main/Module/Scripts/TelegramPlatformRedirect.js,timeout=10
+
+[MITM]
+hostname = %APPEND% t.me
