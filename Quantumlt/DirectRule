@@ -1,0 +1,38 @@
+
+# netcup
+host-suffix, netcup.com
+
+# abc
+host,mobilepaas.abchina.com.cn
+
+
+# dnschecker.org
+host-suffix, dnschecker.org
+
+# deepseek
+host-suffix, deepseek.com
+
+# siliconflow
+host-suffix, siliconflow.cn
+host-suffix, siliconflow.com
+
+# ABC
+host-suffix, 5gd.cn
+host, mb-mbc.cdn-static.abchina.com.cn
+
+# kehua
+host-suffix, tideswing.fun
+
+# jpush
+host-suffix, jpush.cn
+
+# zhibo8
+host-suffix, zhibo8.com
+host-suffix, zhibo8.cc
+
+# jd
+host-suffix, 360buyimg.com
+host-suffix, jd.com
+
+# right
+host-suffix,right.com.cn

@@ -1,0 +1,39 @@
+# ==========================================================
+# Meta Services
+# ==========================================================
+
+# Facebook
+HOST-SUFFIX,facebook.com
+HOST-SUFFIX,facebook.net
+HOST-SUFFIX,fb.com
+HOST-SUFFIX,fb.me
+HOST-SUFFIX,fbcdn.net
+HOST-SUFFIX,fbcdn.com
+HOST-SUFFIX,fbcdn-a.akamaihd.net
+
+# Messenger
+HOST-SUFFIX,messenger.com
+HOST-SUFFIX,m.me
+
+# Instagram
+HOST-SUFFIX,instagram.com
+HOST-SUFFIX,cdninstagram.com
+HOST-SUFFIX,instagr.am
+HOST-SUFFIX,ig.me
+HOST-SUFFIX,igcdn.com
+HOST-SUFFIX,igsonar.com
+
+# Threads
+HOST-SUFFIX,threads.net
+
+# WhatsApp
+HOST-SUFFIX,whatsapp.com
+HOST-SUFFIX,whatsapp.net
+HOST-SUFFIX,whatsapp.biz
+HOST-SUFFIX,wa.me
+
+# Meta Shared Infrastructure
+HOST-SUFFIX,meta.com
+HOST-SUFFIX,fbsbx.com
+HOST-SUFFIX,fbsbx.net
+HOST-SUFFIX,fburl.com

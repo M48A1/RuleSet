@@ -1,0 +1,47 @@
+
+# blog
+host, blog.sinohyper.com
+
+
+# sb.sb
+host-suffix, sb.sb
+
+# bo.ke
+host-suffix, bo.ke
+
+# yandex
+host-suffix, yandex.com
+# wiki
+host-suffix, wikipedia.org
+host-suffix, wikimedia.org
+
+# nodeseek
+HOST-SUFFIX,nodeseek.org
+host-suffix, nodeseek.com
+host-suffix, nodeimage.com
+
+#Surfing
+host-suffix, 2libra.com
+host-suffix, vercel.app
+host-suffix, vercel.com
+host-suffix, nssurge.com
+host-suffix, v2ex.com
+host-suffix, v2core.com
+host-keyword, v2ex
+
+host-suffix, greasyfork.org
+host-keyword, greasyfork
+host-suffix, mozilla.org
+host-suffix, yahoo.com
+host-suffix, gitlab.com
+host-suffix, imgur.com
+host-suffix, kagi.com
+host-suffix, weather-in-calendar.com
+
+# Fut
+host-suffix, fut.gg
+host-suffix, futbin.com
+
+
+
+

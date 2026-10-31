@@ -1,0 +1,139 @@
+# version 1.0.0
+
+# date 2026-08-12 10:32:00
+ 
+# NAME: AppleMail
+
+HOST,mail.icloud.com.cn
+HOST,mail.me.com
+
+# NAME: AppleID
+
+HOST,appleid.apple.com
+HOST,appleid.cdn-apple.com
+HOST,gsa.apple.com
+HOST,idmsa.apple.com
+
+# NAME: AppleMusic
+
+HOST,aod-ssl.itunes.apple.com
+HOST,aod.itunes.apple.com
+HOST,audio-ssl.itunes.apple.com
+HOST,audio.itunes.apple.com
+HOST,mvod.itunes.apple.com
+HOST,streamingaudio.itunes.apple.com
+HOST-SUFFIX,applemusic.com
+HOST-SUFFIX,blobstore.apple.com
+HOST-SUFFIX,music.apple.com
+USER-AGENT,Music*
+
+
+# Apple 官网及基础服务
+HOST-SUFFIX,apple.com
+HOST-SUFFIX,apple.cn
+HOST-SUFFIX,apple.com.cn
+HOST-SUFFIX,edge.apple
+
+# App Store
+HOST-SUFFIX,apps.apple.com
+HOST-SUFFIX,appsto.re
+HOST-SUFFIX,appstoreconnect.apple.com
+HOST-SUFFIX,itunes.apple.com
+HOST-SUFFIX,itunes-apple.com
+HOST-SUFFIX,mzstatic.com
+HOST-SUFFIX,aaplimg.com
+HOST-SUFFIX,cdn-apple.com
+HOST-SUFFIX,testflight.apple.com
+
+
+
+# Apple Books
+HOST,books.itunes.apple.com
+HOST,bookkeeper.itunes.apple.com
+
+# Apple Developer
+HOST-SUFFIX,developer.apple.com
+HOST,adcdownload.apple.com
+HOST,download.developer.apple.com
+HOST,devimages-cdn.apple.com
+HOST,devstreaming-cdn.apple.com
+HOST,docs-assets.developer.apple.com
+
+# Apple 地图
+HOST-SUFFIX,apple-mapkit.com
+HOST-SUFFIX,cdn-apple-mapkit.com
+HOST-SUFFIX,ls.apple.com
+HOST,gs-loc.apple.com
+HOST,gs-loc-cn.apple.com
+HOST,maps.apple.com
+
+# 天气与股票
+HOST,weather-data.apple.com
+HOST,weather-map.apple.com
+HOST,weather-map2.apple.com
+HOST,weatherkit.apple.com
+HOST,stocks-sparkline.apple.com
+
+# Apple 支持与商店
+HOST,store.apple.com
+HOST,support.apple.com
+HOST,supportdownload.apple.com
+HOST,communities.apple.com
+HOST,km.support.apple.com
+
+# 系统软件下载与更新
+HOST,mesu.apple.com
+HOST,oscdn.apple.com
+HOST,swcatalog.apple.com
+HOST,swcdn.apple.com
+HOST,swdist.apple.com
+HOST,swscan.apple.com
+HOST,updates.cdn-apple.com
+
+
+
+
+
+# NAME: iCloud
+
+HOST,www-cdn.icloud.com.akadns.net
+HOST-SUFFIX,apple-cloudkit.com
+HOST-SUFFIX,apple-icloud.cn
+HOST-SUFFIX,apple-livephotoskit.com
+HOST-SUFFIX,appleicloud.cn
+HOST-SUFFIX,applemx-icloud.com
+HOST-SUFFIX,apzones.com
+HOST-SUFFIX,gc.apple.com
+HOST-SUFFIX,icloud-apple.cn
+HOST-SUFFIX,icloud-content.com
+HOST-SUFFIX,icloud-content.com.cn
+HOST-SUFFIX,icloud-isupport.com
+HOST-SUFFIX,icloud-sandbox.com
+HOST-SUFFIX,icloud.apple.com
+HOST-SUFFIX,icloud.cn
+HOST-SUFFIX,icloud.com
+HOST-SUFFIX,icloud.com.cn
+HOST-SUFFIX,icloud.net.cn
+HOST-SUFFIX,icloudads.net
+HOST-SUFFIX,icloudapple.cn
+HOST-SUFFIX,icloudbox.net
+HOST-SUFFIX,icloudbrowser.net
+HOST-SUFFIX,icloude.com
+HOST-SUFFIX,icloudhome.com
+HOST-SUFFIX,icloudmail.net
+HOST-SUFFIX,icloudmusic.net
+HOST-SUFFIX,icloudnet.net
+HOST-SUFFIX,icloudo.com
+HOST-SUFFIX,icloudo.net
+HOST-SUFFIX,icloudos.net
+HOST-SUFFIX,icloudpay.net
+HOST-SUFFIX,icloudsecure.net
+HOST-SUFFIX,icloudsetup.com
+HOST-SUFFIX,ios-icloud.com
+HOST-SUFFIX,iwork.apple.com
+HOST-SUFFIX,me.com
+HOST-SUFFIX,myicloud.net
+HOST-SUFFIX,mylcloud.net
+HOST-SUFFIX,www-cdn.icloud.com
+HOST-SUFFIX,wwwicloud.com
+HOST-SUFFIX,icloud.com.akadns.net

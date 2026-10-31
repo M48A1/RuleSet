@@ -1,0 +1,12 @@
+HOST-SUFFIX,959722.xyz
+
+# Google Drive - load this rule set before Google.list
+HOST-SUFFIX,googledrive.com
+HOST-SUFFIX,drive.google.com
+HOST,drive.usercontent.google.com
+HOST,drive-data-export.usercontent.google.com
+HOST,drive-data-export-eu.usercontent.google.com
+HOST-SUFFIX,drive.googleusercontent.com
+HOST,drive.googleapis.com
+HOST,driveactivity.googleapis.com
+HOST,drivelabels.googleapis.com
