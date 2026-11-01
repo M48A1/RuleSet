@@ -1,13 +1,16 @@
 #!name=Reddit Ad Block
 #!category= AntiAD
-#!desc=Reddit ad removal and enhancements by @ddgksf2013. Requires MITM and a trusted certificate. Preserves upstream content-visibility and client-side Premium display modifications.
+#!desc=Reddit 去广告（GraphQL 广告操作与列表内广告帖）；需开启 MITM 并信任证书。不伪造会员 / 员工身份。
 #!author=@ddgksf2013
+#!moduleUrl=https://raw.githubusercontent.com/M48A1/RuleSet/main/Module/RedditAds.sgmodule
+#!date=2026-11-01
 
 # Source: https://raw.githubusercontent.com/ddgksf2013/Rewrite/refs/heads/master/AdBlock/RedditAds.conf
 # Upstream configuration: V1.0.4 (2025-05-30)
 # Surge conversion: 2026-10-29
 # Script mirrored from https://github.com/ddgksf2013/Scripts/blob/master/reddit.js
 # Mirror date: 2026-10-30; upstream V1.0.9 and author attribution preserved.
+# 2026-11-01: 本地脚本改为反混淆版本（逻辑等价，去掉 isPremiumMember / isEmployee 伪造）。
 
 [Script]
 RedditAds = type=http-response, pattern=^https?:\/\/gql-fed\.reddit\.com\/$, script-path=https://raw.githubusercontent.com/M48A1/RuleSet/main/Module/Scripts/reddit.js, requires-body=true, max-size=1048576

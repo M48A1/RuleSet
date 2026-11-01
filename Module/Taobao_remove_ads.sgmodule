@@ -5,6 +5,7 @@
 #!openUrl=https://apps.apple.com/app/id387682726
 #!category= AntiAD
 #!homepage=https://hub.kelee.one
+#!moduleUrl=https://raw.githubusercontent.com/M48A1/RuleSet/main/Module/Taobao_remove_ads.sgmodule
 #!date=2025-12-28 18:55:08
 
 # 来源：https://github.com/QingRex/LoonKissSurge/blob/main/Surge/淘宝去广告.sgmodule

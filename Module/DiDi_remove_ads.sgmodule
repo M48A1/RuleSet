@@ -6,11 +6,14 @@
 #!openUrl=https://apps.apple.com/app/id554499054
 #!tag=去广告
 #!homepage=https://hub.kelee.one
-#!date=2025-12-29 17:07:29
+#!moduleUrl=https://raw.githubusercontent.com/M48A1/RuleSet/main/Module/DiDi_remove_ads.sgmodule
+#!date=2026-11-01
 
 # 来源：https://github.com/QingRex/LoonKissSurge/blob/main/Surge/滴滴出行去广告.sgmodule
 # 整理日期：2026-10-29；保留上游作者署名。
 # 原始 Loon 链接当前返回 403，未核对最新原插件。
+# 安全调整（2026-11-01）：删除 /ep/as/toggles 里关闭代驾 TCP 加密（daijia_tcp_msg_encrypt 等）的规则，
+# 并移除 as.xiaojukeji.com 与 116.85.*、120.241.* 等云厂商共享网段的 MITM 主机。
 
 [Rule]
 DOMAIN,gwp.xiaojukeji.com,REJECT,extended-matching,pre-matching
@@ -36,7 +39,6 @@ http-response-jq ^https:\/\/daijia\.kuaidadi\.com:443\/gateway\? '.data |= with_
 http-response-jq ^https:\/\/api\.udache\.com\/intercity\/ticket\/api\/v1\/core\/getFullPageInfoLayout\? '.data.disorder_components |= (map(select(.name == "history_order_card" or .name == "inprogress_order_card" or .name == "station_calendar" or .name == "main_card_v2" or .name == "user_history_order")))'
 http-response-jq ^https:\/\/htwkop\.xiaojukeji\.com:443\/gateway\? 'delpaths([["data","didi-bike-homepage-popup"]])'
 http-response-jq ^https:\/\/htwkop\.xiaojukeji\.com:443\/gateway\? 'delpaths([["data","variantInfo"]])'
-http-response-jq ^https:\/\/as\.xiaojukeji\.com\/ep\/as\/toggles\? '.data |= map(if .name|IN("daijia_journey_new_tcp_switch","daijia_tcp_init","daijia_tcp_msg_encrypt","daijia_tcp_site_info","daijia_tcp_site_report")then.allow=false else. end)'
 
 [Map Local]
 ^https:\/\/res\.xiaojukeji\.com\/resapi\/activity\/mget data-type=text data="{}" status-code=200 header="Content-Type:application/json"
@@ -52,5 +54,5 @@ http-response-jq ^https:\/\/as\.xiaojukeji\.com\/ep\/as\/toggles\? '.data |= map
 ^https:\/\/poi\.map\.xiaojukeji\.com\/mapapi\/recommend\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 
 [MITM]
-hostname = %APPEND% daijia.kuaidadi.com, htwkop.xiaojukeji.com, poi.map.xiaojukeji.com, as.xiaojukeji.com, common.diditaxi.com.cn, conf.diditaxi.com.cn, lion.didialift.com, api.udache.com, ct.xiaojukeji.com, res.xiaojukeji.com, 112.53.55.225, 139.199.240.84, 113.46.225.*, 162.14.157.*, 123.207.209.*, 120.241.142.*, 120.241.143.*, 116.85.*
+hostname = %APPEND% daijia.kuaidadi.com, htwkop.xiaojukeji.com, poi.map.xiaojukeji.com, common.diditaxi.com.cn, conf.diditaxi.com.cn, lion.didialift.com, api.udache.com, ct.xiaojukeji.com, res.xiaojukeji.com, 112.53.55.225, 139.199.240.84
 

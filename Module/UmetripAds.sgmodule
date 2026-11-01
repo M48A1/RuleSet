@@ -1,9 +1,12 @@
 #!name=Umetrip Ad Block
-#!desc=原作者 @ddgksf2013；自动下载适配脚本；需开启 MITM、信任证书。
+#!desc=原作者 @ddgksf2013；脚本已镜像到本仓库；需开启 MITM、信任证书。
+#!author=@ddgksf2013
+#!moduleUrl=https://raw.githubusercontent.com/M48A1/RuleSet/main/Module/UmetripAds.sgmodule
 #!category= AntiAD
+#!date=2026-11-01
 
 # 原配置：https://ddgksf2013.top/rewrite/UmetripAds.conf
-# 原脚本：https://ddgksf2013.top/scripts/umetrip.ads.js
+# 原脚本：https://ddgksf2013.top/scripts/umetrip.ads.js（已本地化为 Module/umetrip.ads.surge.js）
 # Surge 适配：2026-10-29
 
 [Rule]
