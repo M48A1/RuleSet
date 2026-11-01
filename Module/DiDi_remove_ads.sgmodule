@@ -1,7 +1,7 @@
 #!name=DiDi Ad Block
 #!desc=移除开屏广告、弹窗广告、横幅推广，精简底栏和我的页面。
 #!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
-#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/DiDi.png
+#!icon=https://raw.githubusercontent.com/M48A1/RuleSet/main/Module/Icons/DiDi.png
 #!category= AntiAD
 #!openUrl=https://apps.apple.com/app/id554499054
 #!tag=去广告

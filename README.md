@@ -110,4 +110,8 @@
 - 2026-11-01 安全调整：`StartUpAds`、`WeChatmini`、`DiDi` 移除银行 / 券商 / 微信安全 / 京东金融等高风险
   MITM 主机及对应失效规则，并删除与任意主机匹配的通用 Map Local 规则；`Rednote` 不再拦截青少年模式状态接口；
   `DiDi` 不再关闭代驾 TCP 加密。
+- 模块图标同样本地化：`DiDi`、`JD`、`Taobao` 的 `#!icon` 指向本仓库 `Module/Icons/`，不再从
+  `luestr/IconResource` 拉取。仅 `Scripts/kelee/chayanyuese_remove_ads.js` 保留一个上游图片地址
+  （kelee.one，用于替换小程序 banner，非代码），去掉它只需删除该行。
+- 各模块的 `#!homepage` / `#!openUrl` 只是信息性链接（用户点击才会打开），不会被 Surge 自动请求。
 
