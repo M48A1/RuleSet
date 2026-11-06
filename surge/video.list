@@ -1,5 +1,9 @@
 DOMAIN-SUFFIX,959722.xyz
 
+
+DOMAIN-SUFFIX,pornhub.com
+
+
 # Google Drive - load this rule set before Google.list
 DOMAIN-SUFFIX,googledrive.com
 DOMAIN-SUFFIX,drive.google.com
