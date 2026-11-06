@@ -1,7 +1,7 @@
 
 # ip test
 
-DOMAIN,ip.net.coffee
+# DOMAIN,ip.net.coffee
 
 # OpenAI
 DOMAIN-WILDCARD,chatgpt-async-webps-prod-*.webpubsub.azure.com
