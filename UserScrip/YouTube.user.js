@@ -1,18 +1,134 @@
 // ==UserScript==
-// @name         YouTube 首页 Shorts 与游戏屏蔽
+// @name         YouTube 首页屏蔽与 HD 画质
 // @namespace    https://www.youtube.com/
-// @version      1.2.0
-// @description  隐藏 YouTube 首页中的 Shorts、即玩游戏及标题明确标注的游戏推荐，并屏蔽“解锁更多会员专属福利”等会员推广。
+// @version      1.3.0
+// @description  屏蔽首页 Shorts、游戏和会员推广，自动选择 HD 画质，支持剧院模式及播放器尺寸调整。
 // @match        https://www.youtube.com/*
 // @match        https://m.youtube.com/*
 // @grant        none
 // @run-at       document-start
-// @downloadURL  https://raw.githubusercontent.com/M48A1/RuleSet/main/UserScrip/YouTube.js
-// @updateURL    https://raw.githubusercontent.com/M48A1/RuleSet/main/UserScrip/YouTube.js
+// @downloadURL  https://raw.githubusercontent.com/M48A1/RuleSet/main/UserScrip/YouTube.user.js
+// @updateURL    https://raw.githubusercontent.com/M48A1/RuleSet/main/UserScrip/YouTube.user.js
 // ==/UserScript==
 
 (() => {
   'use strict';
+
+  // HD 功能参考 adisib 的 Youtube HD（2025.04.13），此处独立实现：
+  // https://greasyfork.org/en/scripts/23661-youtube-hd
+  // 直接修改这里即可生效，无需清除脚本管理器中保存的设置。
+  const HD_SETTINGS = {
+    changeResolution: true,
+    targetRes: 'hd2160', // highres / hd2880 / hd2160 / hd1440 / hd1080 / hd720 / large / medium / small / tiny
+    highFramerateTargetRes: null, // 60fps 视频的单独画质；null 表示沿用 targetRes
+    autoTheater: false,
+    changePlayerSize: false, // 仅调整桌面端剧院模式的播放器
+    useCustomSize: false,
+    customHeight: 600,
+    removeBlackBars: false,
+  };
+  const HD_QUALITIES = ['highres', 'hd2880', 'hd2160', 'hd1440', 'hd1080', 'hd720', 'large', 'medium', 'small', 'tiny'];
+  const HD_HEIGHTS = [4320, 2880, 2160, 1440, 1080, 720, 480, 360, 240, 144];
+  let hdTimer;
+  let hdGeneration = 0;
+  let hdApplied = null;
+
+  function resizeHDPlayer(player) {
+    if (!HD_SETTINGS.changePlayerSize) return;
+    const watch = document.querySelector('ytd-watch-flexy');
+    if (!watch) return;
+    const index = Math.max(0, HD_QUALITIES.indexOf(HD_SETTINGS.targetRes));
+    const masthead = document.getElementById('masthead');
+    let height = HD_SETTINGS.useCustomSize
+      ? Math.max(270, Number(HD_SETTINGS.customHeight) || 600)
+      : Math.max(270, Math.min(HD_HEIGHTS[index], window.innerHeight - (masthead?.getBoundingClientRect().height || 56) - 32));
+    const video = player?.querySelector('video');
+    if (HD_SETTINGS.removeBlackBars && video?.videoWidth && video.videoHeight) {
+      height = Math.min(height, window.innerWidth * video.videoHeight / video.videoWidth);
+    }
+    let style = document.getElementById('youtube-hd-player-size');
+    if (!style) {
+      style = document.createElement('style');
+      style.id = 'youtube-hd-player-size';
+      (document.head || document.documentElement).appendChild(style);
+    }
+    const css = `ytd-watch-flexy[theater]:not([fullscreen]) :is(#player-theater-container, #player-wide-container, #full-bleed-container) {
+      height: ${height}px !important; min-height: ${height}px !important; max-height: none !important;
+    }`;
+    if (style.textContent !== css) style.textContent = css;
+  }
+
+  function applyHD() {
+    const player = document.querySelector('#movie_player, .html5-video-player');
+    if (!player) return false;
+    const watch = document.querySelector('ytd-watch-flexy');
+    if (HD_SETTINGS.autoTheater && location.pathname === '/watch' && watch && !watch.hasAttribute('theater')) {
+      const button = player.querySelector('.ytp-size-button');
+      if (button) button.click();
+    }
+    resizeHDPlayer(player);
+    if (!HD_SETTINGS.changeResolution) return true;
+    if (player.classList.contains('ad-showing') || player.classList.contains('ad-interrupting')) return false;
+    if (typeof player.getAvailableQualityLevels !== 'function') return false;
+    try {
+      const videoId = player.getVideoData?.().video_id;
+      if (!videoId) return false;
+      // 路由已切换但播放器还在播放上一条时，等待新视频加载。
+      const pageId = new URLSearchParams(location.search).get('v');
+      if (location.pathname === '/watch' && pageId && pageId !== videoId) return false;
+      if (hdApplied?.player === player && hdApplied.videoId === videoId) return true;
+      const available = player.getAvailableQualityLevels();
+      if (!available?.length) return false;
+      const features = player.getVideoData?.().video_quality_features || [];
+      const requested = HD_SETTINGS.highFramerateTargetRes && features.includes('hfr')
+        ? HD_SETTINGS.highFramerateTargetRes : HD_SETTINGS.targetRes;
+      const start = Math.max(0, HD_QUALITIES.indexOf(requested));
+      const quality = HD_QUALITIES.slice(start).find(q => available.includes(q))
+        || [...HD_QUALITIES].reverse().find(q => available.includes(q));
+      if (!quality) return false;
+      if (typeof player.setPlaybackQualityRange !== 'function' && typeof player.setPlaybackQuality !== 'function') return false;
+      player.setPlaybackQualityRange?.(quality, quality);
+      player.setPlaybackQuality?.(quality);
+      hdApplied = { player, videoId };
+      try {
+        const now = Date.now();
+        localStorage.setItem('yt-player-quality', JSON.stringify({ data: quality, creation: now, expiration: now + 2592000000 }));
+      } catch { /* 隐私模式可能禁止本地存储，不影响播放器 API。 */ }
+      return true;
+    } catch {
+      // 播放器在 SPA 切换期间可能暂时不可用，交给有限次数的重试处理。
+      return false;
+    }
+  }
+
+  function scheduleHD(reset = false) {
+    clearTimeout(hdTimer);
+    const generation = ++hdGeneration;
+    if (reset) hdApplied = null;
+    let attempts = 0;
+    const attempt = () => {
+      if (generation !== hdGeneration) return;
+      if (!applyHD() && ++attempts < 30) hdTimer = setTimeout(attempt, 500);
+    };
+    hdTimer = setTimeout(attempt, 0);
+  }
+
+  // 事件驱动并限制就绪重试次数，不持续轮询，也不重新加载视频以清空缓冲。
+  window.addEventListener('yt-navigate-start', () => {
+    clearTimeout(hdTimer);
+    hdGeneration += 1;
+    hdApplied = null;
+  });
+  window.addEventListener('yt-navigate-finish', () => scheduleHD(true));
+  window.addEventListener('popstate', () => scheduleHD(true));
+  window.addEventListener('loadstart', event => {
+    if (event.target instanceof HTMLVideoElement) scheduleHD(true);
+  }, true);
+  window.addEventListener('loadeddata', event => {
+    if (event.target instanceof HTMLVideoElement) scheduleHD();
+  }, true);
+  window.addEventListener('resize', () => resizeHDPlayer(document.querySelector('#movie_player, .html5-video-player')));
+  scheduleHD();
 
   const STYLE_ID = 'hide-youtube-home-shorts-style';
   const HIDDEN_ATTRIBUTE = 'data-hide-home-shorts';
