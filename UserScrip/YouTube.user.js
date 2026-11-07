@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         YouTube 首页 Shorts 与游戏屏蔽
 // @namespace    https://www.youtube.com/
-// @version      1.1.1
-// @description  隐藏 YouTube 首页中的 Shorts、即玩游戏及标题明确标注的游戏推荐。
+// @version      1.2.0
+// @description  隐藏 YouTube 首页中的 Shorts、即玩游戏及标题明确标注的游戏推荐，并屏蔽“解锁更多会员专属福利”等会员推广。
 // @match        https://www.youtube.com/*
 // @match        https://m.youtube.com/*
 // @grant        none
@@ -16,6 +16,11 @@
 
   const STYLE_ID = 'hide-youtube-home-shorts-style';
   const HIDDEN_ATTRIBUTE = 'data-hide-home-shorts';
+
+  // 会员推广会出现在首页推荐组、频道页横幅和播放页付费墙，所以单独用一个属性标记。
+  const MEMBERSHIP_ATTRIBUTE = 'data-hide-membership-promo';
+  // 文案本身可能带标点或“立即加入”之类的后缀，但不能匹配以它开头的长标题。
+  const MEMBERSHIP_TEXT = /^(?:解锁更多会员专属福利|解鎖更多會員專屬福利)[\s\S]{0,8}$/;
 
   // YouTube 会在不刷新页面的情况下切换路由，所以不能只在脚本启动时判断一次。
   function isHomePage() {
@@ -38,7 +43,8 @@
       html[${HIDDEN_ATTRIBUTE}] [data-hide-home-shorts-shelf],
       html[${HIDDEN_ATTRIBUTE}] [data-hide-home-shorts-item],
       html[${HIDDEN_ATTRIBUTE}] [data-hide-home-game],
-      [data-hide-game-hub] {
+      [data-hide-game-hub],
+      [${MEMBERSHIP_ATTRIBUTE}] {
         display: none !important;
       }
     `;
@@ -103,14 +109,60 @@
     });
   }
 
-  let gameScanPending = false;
-  function scheduleGameScan() {
-    if (gameScanPending) return;
-    gameScanPending = true;
+  // 屏蔽“解锁更多会员专属福利”这类会员推广。它不是首页专属内容，所以不做首页判断。
+  const MEMBERSHIP_LABELS = 'a, yt-formatted-string, .yt-core-attributed-string, h2, h3, button';
+  const MEMBERSHIP_BLOCKS = [
+    'ytd-rich-section-renderer',
+    'ytd-rich-shelf-renderer',
+    'ytd-shelf-renderer',
+    'ytd-rich-item-renderer',
+    'ytm-rich-section-renderer',
+    'ytm-shelf-renderer',
+    'ytm-rich-item-renderer',
+    'ytd-statement-banner-renderer',
+    'ytd-banner-promo-renderer',
+    'ytd-promo-renderer',
+    'ytd-guide-entry-renderer',
+    'ytd-mini-guide-entry-renderer',
+  ].join(', ');
+  // 播放器里的付费墙只隐藏提示块，不要把 <video> 容器一起藏掉。
+  const PLAYER_SELECTOR = '#movie_player, .html5-video-player, ytd-player, ytd-player-container';
+
+  // 组件名变化时兜底：向上找第一个“文字仍然很少”的祖先，避免把整个页面藏掉。
+  function closestSmallBlock(el) {
+    let block = el;
+    for (let depth = 0; depth < 8; depth += 1) {
+      const parent = block.parentElement;
+      if (!parent || parent.matches(PLAYER_SELECTOR)) break;
+      if ((parent.textContent || '').trim().length > 200) break;
+      block = parent;
+    }
+    return block;
+  }
+
+  function hideMembershipPromos() {
+    // 推荐组会复用节点，先清掉上一轮的标记再重新判断。
+    document.querySelectorAll(`[${MEMBERSHIP_ATTRIBUTE}]`)
+      .forEach(el => el.removeAttribute(MEMBERSHIP_ATTRIBUTE));
+
+    document.querySelectorAll(MEMBERSHIP_LABELS).forEach(el => {
+      // 只匹配本身就写着这句推广文案的节点，避免整块容器里的长文本误判。
+      const label = (el.getAttribute('aria-label') || el.textContent || '').trim();
+      if (!label || label.length > 60 || !MEMBERSHIP_TEXT.test(label)) return;
+      const block = el.closest(MEMBERSHIP_BLOCKS) || closestSmallBlock(el);
+      block.setAttribute(MEMBERSHIP_ATTRIBUTE, '');
+    });
+  }
+
+  let scanPending = false;
+  function scheduleContentScan() {
+    if (scanPending) return;
+    scanPending = true;
     requestAnimationFrame(() => {
-      gameScanPending = false;
+      scanPending = false;
       hideGameHub();
       hideGames();
+      hideMembershipPromos();
     });
   }
 
@@ -118,13 +170,13 @@
     setHomePageState();
     addStyles();
     hideFallbackShortsShelves(root);
-    scheduleGameScan();
+    scheduleContentScan();
   }
 
   refresh();
 
   const observer = new MutationObserver((mutations) => {
-    scheduleGameScan();
+    scheduleContentScan();
     if (!isHomePage()) return;
     for (const mutation of mutations) {
       for (const node of mutation.addedNodes) {
