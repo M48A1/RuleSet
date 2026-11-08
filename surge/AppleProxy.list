@@ -1,9 +1,8 @@
 
 # Apple / Siri / iCloud
-DOMAIN,gateway.icloud.com
+
 DOMAIN,seed.siri.apple.com
-DOMAIN,probe.icloud.com
-DOMAIN,metrics.icloud.com
+
 
 DOMAIN,guzzoni.apple.com
 DOMAIN-SUFFIX,smoot.apple.com
