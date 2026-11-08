@@ -2,6 +2,13 @@
 
 # date 2026-08-12 10:32:00
 
+
+# iCloud
+
+DOMAIN,gateway.icloud.com
+DOMAIN,probe.icloud.com
+DOMAIN,metrics.icloud.com
+
 # NAME: AppleMail
 
 DOMAIN,mail.icloud.com.cn
