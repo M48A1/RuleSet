@@ -1,1 +1,18 @@
 
+
+# OpenAI
+DOMAIN-WILDCARD,chatgpt-async-webps-prod-*.webpubsub.azure.com
+DOMAIN-WILDCARD,openaicom-api-*.azurefd.net
+DOMAIN,chatgpt.livekit.cloud
+DOMAIN,host.livekit.cloud
+DOMAIN-SUFFIX,turn.livekit.cloud
+DOMAIN,openai.com.cdn.cloudflare.net
+DOMAIN,openaiapi-site.azureedge.net
+DOMAIN,openaicomproductionae4b.blob.core.windows.net
+DOMAIN,production-openaicom-storage.azureedge.net
+DOMAIN-SUFFIX,chat.com
+DOMAIN-SUFFIX,chatgpt.com
+DOMAIN-SUFFIX,oaistatic.com
+DOMAIN-SUFFIX,oaiusercontent.com
+DOMAIN-SUFFIX,openai.com
+DOMAIN-SUFFIX,sora.com
