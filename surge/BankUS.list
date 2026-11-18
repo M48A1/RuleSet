@@ -18,3 +18,12 @@ DOMAIN-SUFFIX,revolut.app
 DOMAIN-SUFFIX,revolut.net
 DOMAIN-SUFFIX,revolut.io
 DOMAIN-SUFFIX,revolut.codes
+
+# sofi
+
+DOMAIN-SUFFIX,sofi.com
+DOMAIN-SUFFIX,sofi.org
+DOMAIN-SUFFIX,sofiassets.com
+DOMAIN-SUFFIX,sofi.io
+DOMAIN-SUFFIX,sofi.hk
+DOMAIN-SUFFIX,sofitravel.com
