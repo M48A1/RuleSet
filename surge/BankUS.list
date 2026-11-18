@@ -9,3 +9,12 @@ DOMAIN-SUFFIX,capitalonecareers.com
 # ip test
 
 DOMAIN,ip.net.coffee
+
+
+# Revolut
+DOMAIN-SUFFIX,revolut.com
+DOMAIN-SUFFIX,revolut.me
+DOMAIN-SUFFIX,revolut.app
+DOMAIN-SUFFIX,revolut.net
+DOMAIN-SUFFIX,revolut.io
+DOMAIN-SUFFIX,revolut.codes
