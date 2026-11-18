@@ -21,10 +21,7 @@ DOMAIN-SUFFIX,yandex.com
 DOMAIN-SUFFIX,wikipedia.org
 DOMAIN-SUFFIX,wikimedia.org
 
-# nodeseek
-DOMAIN-SUFFIX,nodeseek.org
-DOMAIN-SUFFIX,nodeseek.com
-DOMAIN-SUFFIX,nodeimage.com
+
 
 #Surfing
 DOMAIN-SUFFIX,2libra.com
