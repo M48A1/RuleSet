@@ -11,6 +11,11 @@ DOMAIN-SUFFIX,payoneer.com
 DOMAIN-SUFFIX,payoneer.net
 DOMAIN-KEYWORD,payoneer
 
+# krak
+DOMAIN-SUFFIX,krak.app
+DOMAIN-SUFFIX,kraken.com
+DOMAIN-SUFFIX,kraken.io
+
 # wise
 DOMAIN-SUFFIX,wise.com
 DOMAIN-SUFFIX,transferwise.com
