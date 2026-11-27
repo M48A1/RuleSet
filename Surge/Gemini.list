@@ -1,0 +1,42 @@
+# Google Gemini
+DOMAIN-SUFFIX,gemini.google.com
+DOMAIN-SUFFIX,gemini.google
+DOMAIN-SUFFIX,bard.google.com
+DOMAIN,robinfrontend-pa.googleapis.com
+DOMAIN,proactivebackend-pa.googleapis.com
+DOMAIN,geller-pa.googleapis.com
+
+# Google Antigravity
+DOMAIN-SUFFIX,antigravity.google
+DOMAIN-SUFFIX,antigravity-unleash.goog
+DOMAIN,cloudcode-pa.googleapis.com
+DOMAIN,daily-cloudcode-pa.googleapis.com
+DOMAIN,businessaicode.googleapis.com
+DOMAIN,aicode.googleapis.com
+
+# Google AI Studio / Gemini API
+DOMAIN-SUFFIX,aistudio.google.com
+DOMAIN-SUFFIX,makersuite.google.com
+DOMAIN-SUFFIX,ai.google.dev
+DOMAIN-SUFFIX,generativeai.google
+DOMAIN,generativelanguage.googleapis.com
+DOMAIN,alkalicore-pa.clients6.google.com
+DOMAIN,cloudaicompanion.googleapis.com
+DOMAIN,aiplatform.googleapis.com
+DOMAIN,aisandbox-pa.googleapis.com
+
+# Google DeepMind
+DOMAIN-SUFFIX,deepmind.com
+DOMAIN-SUFFIX,deepmind.google
+
+# Google NotebookLM
+DOMAIN-SUFFIX,notebooklm.google
+DOMAIN-SUFFIX,notebooklm.google.com
+DOMAIN-SUFFIX,notebook.google.com
+
+# Google Jules / Stitch / Flow
+DOMAIN-SUFFIX,jules.google.com
+DOMAIN-SUFFIX,stitch.withgoogle.com
+DOMAIN-SUFFIX,flow.google
+DOMAIN,aida.googleapis.com
+DOMAIN-SUFFIX,g.ai
